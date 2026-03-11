@@ -23,7 +23,8 @@ export const products: Product[] = [
     type: "low-content",
     etsy_url: "https://etsy.com/shop/DelytteLiving",
     payhip_url: "https://payhip.com/DelytteLiving",
-    cover_image: "/covers/faith-journal-90.jpg",
+    cover_image:
+      "https://images.unsplash.com/photo-1487147264018-f937fba0c817?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     description:
       "A daily devotional planner designed to anchor your mornings in scripture, gratitude, and intentional prayer.",
     badge: "Bestseller",
@@ -36,7 +37,9 @@ export const products: Product[] = [
     type: "low-content",
     etsy_url: "https://etsy.com/shop/DelytteLiving",
     payhip_url: "https://payhip.com/DelytteLiving",
-    cover_image: "/covers/prayer-gratitude-planner.jpg",
+    cover_image:
+      "https://images.unsplash.com/photo-1487147264018-f937fba0c817?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+
     description:
       "A beautifully simple daily planner to cultivate a consistent habit of prayer and thankfulness.",
   },
@@ -48,7 +51,9 @@ export const products: Product[] = [
     type: "high-content",
     etsy_url: "https://etsy.com/shop/DelytteLiving",
     payhip_url: "https://payhip.com/DelytteLiving",
-    cover_image: "/covers/purpose-clarity-workbook.jpg",
+    cover_image:
+      "https://images.unsplash.com/photo-1487147264018-f937fba0c817?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+
     description:
       "A deep-dive e-book and workbook helping Christian young adults uncover their God-given calling with clarity and confidence.",
     badge: "New",
@@ -61,7 +66,9 @@ export const products: Product[] = [
     type: "low-content",
     etsy_url: "https://etsy.com/shop/DelytteLiving",
     payhip_url: "https://payhip.com/DelytteLiving",
-    cover_image: "/covers/frontend-dev-roadmap.jpg",
+    cover_image:
+      "https://images.unsplash.com/photo-1487147264018-f937fba0c817?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+
     description:
       "A visual cheatsheet laying out the exact path from self-taught beginner to hired frontend developer in 2025.",
   },
@@ -73,7 +80,9 @@ export const products: Product[] = [
     type: "low-content",
     etsy_url: "https://etsy.com/shop/DelytteLiving",
     payhip_url: "https://payhip.com/DelytteLiving",
-    cover_image: "/covers/coding-progress-tracker.jpg",
+    cover_image:
+      "https://images.unsplash.com/photo-1487147264018-f937fba0c817?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+
     description:
       "Track your daily coding sessions, learning milestones, and project progress as you build your dev career.",
   },
@@ -85,7 +94,9 @@ export const products: Product[] = [
     type: "high-content",
     etsy_url: "https://etsy.com/shop/DelytteLiving",
     payhip_url: "https://payhip.com/DelytteLiving",
-    cover_image: "/covers/self-taught-to-hired.jpg",
+    cover_image:
+      "https://images.unsplash.com/photo-1487147264018-f937fba0c817?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+
     description:
       "The definitive guide for self-taught developers — from building your first portfolio project to landing your first professional role.",
     badge: "Flagship",
@@ -98,7 +109,9 @@ export const products: Product[] = [
     type: "low-content",
     etsy_url: "https://etsy.com/shop/DelytteLiving",
     payhip_url: "https://payhip.com/DelytteLiving",
-    cover_image: "/covers/east-africa-trip-planner.jpg",
+    cover_image:
+      "https://images.unsplash.com/photo-1487147264018-f937fba0c817?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+
     description:
       "A printable itinerary and budget tracker tailored for first-time travellers exploring East Africa.",
   },
@@ -110,7 +123,9 @@ export const products: Product[] = [
     type: "low-content",
     etsy_url: "https://etsy.com/shop/DelytteLiving",
     payhip_url: "https://payhip.com/DelytteLiving",
-    cover_image: "/covers/africa-packing-checklists.jpg",
+    cover_image:
+      "https://images.unsplash.com/photo-1487147264018-f937fba0c817?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+
     description:
       "10 country-specific packing checklists covering East, West, and Southern Africa — never over- or under-pack again.",
   },
@@ -122,7 +137,9 @@ export const products: Product[] = [
     type: "high-content",
     etsy_url: "https://etsy.com/shop/DelytteLiving",
     payhip_url: "https://payhip.com/DelytteLiving",
-    cover_image: "/covers/budget-travel-africa.jpg",
+    cover_image:
+      "https://images.unsplash.com/photo-1487147264018-f937fba0c817?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+
     description:
       "Everything you need to plan an unforgettable, affordable African adventure — from visa tips to hidden-gem destinations.",
     badge: "Popular",
@@ -135,7 +152,9 @@ export const products: Product[] = [
     type: "bundle",
     etsy_url: "https://etsy.com/shop/DelytteLiving",
     payhip_url: "https://payhip.com/DelytteLiving",
-    cover_image: "/covers/delytte-starter-bundle.jpg",
+    cover_image:
+      "https://images.unsplash.com/photo-1487147264018-f937fba0c817?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+
     description:
       "Three carefully chosen journals — one for your faith, one for your career, one for your wanderlust. The perfect starting point.",
     badge: "Best Value",

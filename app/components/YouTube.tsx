@@ -40,32 +40,30 @@ export default function YouTube() {
               Free content,{" "}
               <span className="italic text-rose">every week.</span>
             </h2>
-            <p className="font-body font-light text-cream/50 leading-relaxed text-[15px] mb-10 max-w-md">
+            <p className="font-body font-light text-cream/50 leading-relaxed text-xs md:text-base mb-10 max-w-md">
               The Delytte Living YouTube channel brings our three pillars to
               life — practical videos on faith, tech, and travel, completely
               free. New content every week.
             </p>
 
             <div className="flex flex-wrap gap-3 mb-10">
-              {[
-                "Faith & Devotional",
-                "Frontend Dev Tips",
-                "Africa Travel Guides",
-              ].map((tag) => (
-                <span
-                  key={tag}
-                  className="font-body text-[10px] tracking-[0.2em] uppercase px-4 py-2 border border-cream/10 text-cream/40"
-                >
-                  {tag}
-                </span>
-              ))}
+              {["Faith & Devotional", "Developer Tips", "Travel Guides"].map(
+                (tag) => (
+                  <span
+                    key={tag}
+                    className="font-body text-[10px] tracking-[0.2em] uppercase px-4 py-2 border border-cream/10 text-cream/40"
+                  >
+                    {tag}
+                  </span>
+                ),
+              )}
             </div>
 
             <a
               href="https://youtube.com/@DelytteLiving"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 font-body text-[11px] tracking-[0.2em] uppercase px-8 py-4 bg-rose text-charcoal hover:bg-rose-deep hover:text-cream transition-all duration-300 group"
+              className="inline-flex items-center gap-3 font-body text-[11px] tracking-[0.2em] uppercase px-8 py-4 bg-rose text-charcoal hover:bg-rose-deep hover:text-cream transition-all duration-300 group active:scale-[0.98]"
             >
               <svg
                 viewBox="0 0 24 24"
@@ -98,7 +96,7 @@ export default function YouTube() {
                   <p className="font-body text-[9px] tracking-[0.25em] uppercase text-rose/60 mb-2">
                     {video.pillar}
                   </p>
-                  <p className="font-display text-[17px] font-light text-cream/80 leading-snug group-hover:text-cream transition-colors">
+                  <p className="font-display text[15px] md:text-[17px] font-light text-cream/80 leading-snug group-hover:text-cream transition-colors">
                     {video.title}
                   </p>
                 </div>
