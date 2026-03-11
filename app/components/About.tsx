@@ -29,12 +29,12 @@ export default function About() {
             dimension of life.
           </h2>
 
-          <div className="space-y-5 font-body font-light text-warm-grey leading-[1.9] text-[15px]">
+          <div className="space-y-5 font-body font-light text-warm-grey leading-[1.9] text-xs md:text-base">
             <p>
-              Delytte Living was built at the intersection of three passions — a
-              deep Christian faith, a love for building things on the web, and
-              an irresistible pull toward the beauty and diversity of the
-              African continent.
+              Delytteful Living was built at the intersection of three passions
+              — a deep Christian faith, a love for building things on the web,
+              and an irresistible pull toward the beauty and diversity of
+              nature.
             </p>
             <p>
               We create journals, workbooks, guides, and digital resources for
@@ -51,7 +51,7 @@ export default function About() {
 
           <div className="mt-10 flex items-center gap-3">
             <div className="w-8 h-px bg-rose" />
-            <p className="font-body text-[11px] tracking-[0.3em] uppercase text-rose-deep">
+            <p className="font-body text-[10px] md:text-xs tracking-[0.3em] uppercase text-rose-deep">
               Rooted in faith. Built for purpose.
             </p>
           </div>
@@ -64,13 +64,13 @@ export default function About() {
             <div className="absolute top-4 right-6 font-display text-[120px] leading-none text-rose/10 select-none pointer-events-none">
               "
             </div>
-            <p className="font-display italic text-cream text-2xl leading-relaxed relative z-10">
+            <p className="font-display italic text-cream text-xl md:text-2xl leading-relaxed relative z-10">
               The ambitious young adult who wants to grow in faith, career, and
               adventure —
               <span className="text-rose"> that's who we're here for.</span>
             </p>
             <p className="font-body text-[10px] tracking-[0.3em] uppercase text-rose/60 mt-6">
-              — Delytte Living
+              — Delytteful Living
             </p>
           </div>
 
@@ -101,12 +101,12 @@ export default function About() {
               <p className="font-display text-xl text-charcoal">
                 Delytte Safaris
               </p>
-              <p className="font-body text-[13px] text-warm-grey mt-1 leading-relaxed">
-                Our Africa travel startup — curating authentic safari and tour
-                experiences across the continent.
+              <p className="font-body text-xs md:text-sm text-warm-grey mt-1 leading-relaxed">
+                Our Africa travel canvas — curating bespoke authentic safari and
+                tour experiences across the continent.
               </p>
               <a
-                href="https://delyttesafaris.com"
+                href="https://delytte-safaris.sirharmony.dev/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block mt-3 font-body text-[10px] tracking-[0.25em] uppercase text-rose-deep hover:text-charcoal transition-colors"

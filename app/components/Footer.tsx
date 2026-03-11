@@ -48,7 +48,7 @@ export default function Footer() {
         {/* Brand column */}
         <div className="lg:col-span-1">
           <p className="font-display text-2xl font-light tracking-widest mb-3">
-            Delytte <span className="italic text-rose">Living</span>
+            Delytteful <span className="italic text-rose">Living</span>
           </p>
           <p className="font-body text-[10px] tracking-[0.25em] uppercase text-cream/30 mb-5">
             Faith · Tech · Travel
@@ -126,12 +126,12 @@ export default function Footer() {
       <div className="border-t border-cream/10 px-6 py-5">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-3">
           <p className="font-body text-[10px] tracking-[0.15em] text-cream/25">
-            © {new Date().getFullYear()} Delytte Living. All rights reserved.
+            © {new Date().getFullYear()} Delytteful Living. All rights reserved.
           </p>
           <p className="font-body text-[10px] tracking-[0.15em] text-cream/20">
             A sister brand of{" "}
             <a
-              href="https://delyttesafaris.com"
+              href="https://delytte-safaris.sirharmony.dev/"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-rose/60 transition-colors"

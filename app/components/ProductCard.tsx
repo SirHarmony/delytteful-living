@@ -23,7 +23,7 @@ export default function ProductCard({ product }: ProductCardProps) {
   };
 
   return (
-    <article className="group bg-cream flex flex-col relative overflow-hidden border border-cream-dark hover:border-rose transition-colors duration-300 hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
+    <article className="max-h-450px] lg:max-w-[280px] xl:max-w-[300px] group bg-cream flex flex-col relative overflow-hidden border border-cream-dark hover:border-rose transition-colors duration-300 hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
       {/* Cover image */}
       <div className="relative aspect-[3/4] overflow-hidden bg-cream-dark">
         <img
@@ -101,15 +101,25 @@ export default function ProductCard({ product }: ProductCardProps) {
             href={product.payhip_url}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 text-center font-body text-[10px] tracking-[0.2em] uppercase py-3 bg-charcoal text-cream hover:bg-rose-deep transition-colors duration-300"
+            className="flex-1 text-center font-body text-[10px] tracking-[0.2em] uppercase py-3 bg-charcoal text-cream hover:bg-rose-deep transition-colors duration-300 active:scale-[0.98]"
           >
-            Buy Direct
+            Amazon
           </a>
+
+          <a
+            href={product.payhip_url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 text-center font-body text-[10px] tracking-[0.2em] uppercase py-3 border border-cream-dark text-warm-grey hover:border-charcoal hover:text-charcoal transition-colors duration-300 active:scale-[0.98]"
+          >
+            Payhip
+          </a>
+
           <a
             href={product.etsy_url}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 text-center font-body text-[10px] tracking-[0.2em] uppercase py-3 border border-cream-dark text-warm-grey hover:border-charcoal hover:text-charcoal transition-colors duration-300"
+            className="flex-1 text-center font-body text-[10px] tracking-[0.2em] uppercase py-3 bg-charcoal text-cream hover:bg-rose-deep transition-colors duration-300 active:scale-[0.98]"
           >
             Etsy
           </a>

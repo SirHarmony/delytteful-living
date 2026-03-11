@@ -68,7 +68,7 @@ export default function Pillars() {
             Three pillars.{" "}
             <span className="italic text-rose-deep">One mission.</span>
           </h2>
-          <p className="font-body font-light text-warm-grey mt-5 max-w-lg mx-auto leading-relaxed text-[15px]">
+          <p className="font-body font-light text-warm-grey mt-5 max-w-lg mx-auto leading-relaxed text-xs md:text-base">
             Every resource we create lives within one of three pillars — each
             one serving a different dimension of the ambitious young adult's
             life.
@@ -80,11 +80,11 @@ export default function Pillars() {
           {pillars.map((pillar, i) => (
             <div
               key={pillar.number}
-              className="bg-cream p-10 flex flex-col group hover:shadow-lg transition-shadow duration-500"
+              className="bg-cream p-6 lg:mr-4 mb-2 md:mb-4 lg:mb-0 flex flex-col group hover:shadow-lg transition-shadow duration-500"
             >
               {/* Number + emoji */}
               <div className="flex items-start justify-between mb-8">
-                <span className="font-display text-6xl font-light text-cream-dark select-none leading-none">
+                <span className="font-display text-5xl md:text-6xl font-light text-cream-dark select-none leading-none">
                   {pillar.number}
                 </span>
                 <span className="text-3xl">{pillar.emoji}</span>
@@ -92,20 +92,20 @@ export default function Pillars() {
 
               {/* Pillar label */}
               <span
-                className={`inline-block self-start font-body text-[9px] tracking-[0.3em] uppercase px-3 py-1.5 mb-4 ${pillar.tagColor}`}
+                className={`inline-block self-start font-body text-[9px] md:text-xs tracking-[0.3em] uppercase px-3 py-1.5 mb-4 ${pillar.tagColor}`}
               >
                 {pillar.label}
               </span>
 
               {/* Heading */}
               <h3
-                className={`font-display text-2xl font-light leading-snug mb-4 ${pillar.headingColor}`}
+                className={`font-display text-xl md:text-2xl font-light leading-snug mb-4 ${pillar.headingColor}`}
               >
                 {pillar.heading}
               </h3>
 
               {/* Body */}
-              <p className="font-body font-light text-warm-grey text-[13.5px] leading-[1.85] mb-8 flex-1">
+              <p className="font-body font-light text-warm-grey text-xs md:text-base leading-[1.85] mb-8 flex-1">
                 {pillar.body}
               </p>
 
@@ -128,7 +128,7 @@ export default function Pillars() {
               {/* CTA */}
               <a
                 href="#shop"
-                className="mt-8 self-start font-body text-[10px] tracking-[0.25em] uppercase text-charcoal hover:text-rose-deep transition-colors"
+                className="mt-8 self-start font-body text-[10px] tracking-[0.25em] uppercase text-charcoal hover:text-rose-deep transition-colors active:scale-[0.98]"
               >
                 Browse resources →
               </a>
