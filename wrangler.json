@@ -1,0 +1,7 @@
+{
+  "name": "delytteful-living",
+  "main": "./workers/app.ts",
+  "compatibility_date": "2026-03-11",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": { "directory": "./build/client" }
+}

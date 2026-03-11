@@ -1,13 +1,37 @@
 import type { Route } from "./+types/home";
-import { Welcome } from "../welcome/welcome";
+import Hero from "~/components/Hero";
+import About from "~/components/About";
+import Pillars from "~/components/Pillars";
+import Shop from "~/components/Shop";
+import YouTube from "~/components/YouTube";
+import Footer from "~/components/Footer";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: "Delytte Living — Faith · Tech · Travel" },
+    {
+      name: "description",
+      content:
+        "Digital journals, workbooks and guides for the ambitious young adult. Grow in faith, build a career in tech, and explore Africa — with intention.",
+    },
+    { property: "og:title", content: "Delytte Living" },
+    {
+      property: "og:description",
+      content:
+        "Faith · Tech · Travel — resources for the ambitious young adult.",
+    },
   ];
 }
 
 export default function Home() {
-  return <Welcome />;
+  return (
+    <main>
+      <Hero />
+      <About />
+      <Pillars />
+      <Shop />
+      <YouTube />
+      <Footer />
+    </main>
+  );
 }

@@ -1,0 +1,36 @@
+{
+  "_chunk-EPOLDU6W-CP3WDhNt.js": {
+    "file": "assets/chunk-EPOLDU6W-CP3WDhNt.js",
+    "name": "chunk-EPOLDU6W"
+  },
+  "app/root.tsx?__react-router-build-client-route": {
+    "file": "assets/root-DO_LAcNW.js",
+    "name": "root",
+    "src": "app/root.tsx?__react-router-build-client-route",
+    "isEntry": true,
+    "imports": [
+      "_chunk-EPOLDU6W-CP3WDhNt.js"
+    ],
+    "css": [
+      "assets/root-BFPf46kL.css"
+    ]
+  },
+  "app/routes/home.tsx?__react-router-build-client-route": {
+    "file": "assets/home-lgC9O4qB.js",
+    "name": "home",
+    "src": "app/routes/home.tsx?__react-router-build-client-route",
+    "isEntry": true,
+    "imports": [
+      "_chunk-EPOLDU6W-CP3WDhNt.js"
+    ]
+  },
+  "node_modules/.pnpm/@react-router+dev@7.12.0_@react-router+serve@7.12.0_react-router@7.12.0_react-dom@19.2._db75821cc44437e83189a2c112729f1e/node_modules/@react-router/dev/dist/config/defaults/entry.client.tsx": {
+    "file": "assets/entry.client-C4vAeVvd.js",
+    "name": "entry.client",
+    "src": "node_modules/.pnpm/@react-router+dev@7.12.0_@react-router+serve@7.12.0_react-router@7.12.0_react-dom@19.2._db75821cc44437e83189a2c112729f1e/node_modules/@react-router/dev/dist/config/defaults/entry.client.tsx",
+    "isEntry": true,
+    "imports": [
+      "_chunk-EPOLDU6W-CP3WDhNt.js"
+    ]
+  }
+}
