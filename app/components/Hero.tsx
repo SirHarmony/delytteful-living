@@ -1,6 +1,9 @@
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-charcoal px-6">
+    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[url('https://images.unsplash.com/photo-1434907714621-289291ffea37?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center px-6">
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-charcoal/85"></div>
+
       {/* Decorative background circles */}
       <div className="absolute top-[-80px] right-[-80px] w-[480px] h-[480px] rounded-full bg-rose opacity-[0.07] blur-3xl pointer-events-none" />
       <div className="absolute bottom-[-100px] left-[-60px] w-[360px] h-[360px] rounded-full bg-sage opacity-[0.08] blur-3xl pointer-events-none" />
@@ -21,14 +24,14 @@ export default function Hero() {
             letterSpacing: "0.04em",
           }}
         >
-          Delytte{" "}
+          Delytteful{" "}
           <span className="italic text-rose" style={{ fontWeight: 300 }}>
             Living
           </span>
         </h1>
 
         {/* Tagline */}
-        <p className="animate-fade-up delay-200 font-body font-light text-cream/60 text-lg md:text-xl tracking-wide max-w-xl mx-auto mb-12 leading-relaxed">
+        <p className="animate-fade-up delay-200 font-body font-light text-cream/60 text-base md:text-lg md:text-xl tracking-wide max-w-xl mx-auto mb-12 leading-relaxed">
           Resources for the young adult ready to grow in faith, build a career
           in tech, and explore the beauty of Africa.
         </p>
@@ -37,14 +40,14 @@ export default function Hero() {
         <div className="animate-fade-up delay-300 relative mx-auto max-w-lg mb-12">
           <div className="absolute left-0 top-0 bottom-0 w-px bg-rose opacity-40" />
           <div className="pl-6 text-left">
-            <p className="font-display italic text-cream/70 text-lg leading-relaxed">
+            <p className="font-display italic text-cream/70 text-base md:text-lg leading-relaxed">
               "Delight yourself also in the Lord, and He shall give you the{" "}
               <span className="text-rose not-italic font-normal">
                 desires of your heart.
               </span>
               "
             </p>
-            <p className="font-body text-[10px] tracking-[0.35em] uppercase text-rose/60 mt-3">
+            <p className="font-body text-[10px] md:text-xs tracking-[0.35em] uppercase text-rose/60 mt-3">
               Psalm 37 : 4
             </p>
           </div>
@@ -54,13 +57,13 @@ export default function Hero() {
         <div className="animate-fade-up delay-400 flex flex-wrap items-center justify-center gap-4">
           <a
             href="#shop"
-            className="font-body text-xs tracking-[0.2em] uppercase px-8 py-4 bg-rose text-charcoal hover:bg-rose-deep hover:text-cream transition-all duration-300"
+            className="font-body text-xs tracking-[0.2em] uppercase px-8 py-4 bg-rose text-charcoal hover:bg-rose-deep hover:text-cream transition-all duration-300 active:scale-[0.98]"
           >
             Browse the Shop
           </a>
           <a
             href="#about"
-            className="font-body text-xs tracking-[0.2em] uppercase px-8 py-4 border border-cream/20 text-cream/70 hover:border-cream/50 hover:text-cream transition-all duration-300"
+            className="font-body text-xs tracking-[0.2em] uppercase px-8 py-4 border border-cream/20 text-cream/70 hover:border-cream/50 hover:text-cream transition-all duration-300 active:scale-[0.98]"
           >
             Our Story
           </a>

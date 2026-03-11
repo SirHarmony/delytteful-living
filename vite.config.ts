@@ -11,14 +11,14 @@ export default defineConfig({
     reactRouter(),
     tsconfigPaths(),
   ],
-  resolve: {
-    mainFields: ["module", "main"],
-  },
-  ssr: {
-    resolve: {
-      conditions: ["workerd", "worker", "browser", "module", "import"],
-      externalConditions: ["workerd", "worker"],
+  server: {
+    hmr: {
+      protocol: "ws",
+      host: "localhost",
     },
-    noExternal: ["react", "react-dom", "react-router"],
+    watch: {
+      usePolling: true,
+      interval: 300,
+    },
   },
 });
