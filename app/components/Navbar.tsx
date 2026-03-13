@@ -90,7 +90,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       <div
-        className={`md:hidden bg-cream/85 border-t border-cream-dark transition-all duration-300 overflow-hidden z-50 ${
+        className={`md:hidden bg-cream/85 border-t border-cream-dark transition-all duration-300 overflow-hidden z-[60] ${
           menuOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
