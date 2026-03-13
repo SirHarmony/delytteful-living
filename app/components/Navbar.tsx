@@ -30,11 +30,7 @@ export default function Navbar() {
         {/* Wordmark */}
         <Link
           to="/"
-          className={
-            scrolled
-              ? "font-display text-sm md:text-xl font-light tracking-widest text-charcoal hover:text-rose-deep transition-colors"
-              : "font-display text-sm md:text-xl font-light tracking-widest text-cream hover:text-rose-deep transition-colors"
-          }
+          className={`font-display text-sm md:text-xl font-light tracking-widest ${scrolled ? "text-charcoal " : "text-cream "}hover:text-rose-deep transition-colors`}
         >
           Delytteful <span className="italic text-rose-deep">Living</span>
         </Link>
@@ -68,20 +64,20 @@ export default function Navbar() {
           aria-label="Toggle menu"
         >
           <span
-            className={`block w-6 h-px bg-charcoal transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`}
+            className={`block w-6 h-px ${scrolled ? "bg-charcoal" : "bg-cream"} transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`}
           />
           <span
-            className={`block w-6 h-px bg-charcoal transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`}
+            className={`block w-6 h-px ${scrolled ? "bg-charcoal" : "bg-cream"} transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`}
           />
           <span
-            className={`block w-6 h-px bg-charcoal transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`}
+            className={`block w-6 h-px ${scrolled ? "bg-charcoal" : "bg-cream"} transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`}
           />
         </button>
       </nav>
 
       {/* Mobile menu */}
       <div
-        className={`md:hidden bg-cream border-t border-cream-dark transition-all duration-300 overflow-hidden ${
+        className={`md:hidden bg-cream/85 border-t border-cream-dark transition-all duration-300 overflow-hidden ${
           menuOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
