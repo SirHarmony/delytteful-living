@@ -30,7 +30,11 @@ export default function Navbar() {
         {/* Wordmark */}
         <Link
           to="/"
-          className="font-display text-sm md:text-xl font-light tracking-widest text-cream hover:text-rose-deep transition-colors"
+          className={
+            scrolled
+              ? "font-display text-sm md:text-xl font-light tracking-widest text-charcoal hover:text-rose-deep transition-colors"
+              : "font-display text-sm md:text-xl font-light tracking-widest text-cream hover:text-rose-deep transition-colors"
+          }
         >
           Delytteful <span className="italic text-rose-deep">Living</span>
         </Link>
