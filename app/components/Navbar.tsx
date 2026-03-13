@@ -11,6 +11,11 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Lock page scrolling when menu is open:
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+  }, [menuOpen]);
+
   const navLinks = [
     { href: "#about", label: "About" },
     { href: "#pillars", label: "Pillars" },
@@ -20,7 +25,7 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 z-50 ${
         scrolled
           ? "bg-cream/90 backdrop-blur-md shadow-sm border-b border-cream-dark"
           : "bg-transparent"
@@ -75,20 +80,20 @@ export default function Navbar() {
         </button>
       </nav>
 
+      {/* Dark overlay */}
+      {menuOpen && (
+        <div
+          onClick={() => setMenuOpen(false)}
+          className="fixed top-16 inset-0 bg-black/50 z-40"
+        />
+      )}
+
       {/* Mobile menu */}
       <div
-        className={`md:hidden bg-cream/85 border-t border-cream-dark transition-all duration-300 overflow-hidden z-40 ${
+        className={`md:hidden bg-cream/85 border-t border-cream-dark transition-all duration-300 overflow-hidden z-50 ${
           menuOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        {/* Dark overlay */}
-        {menuOpen && (
-          <div
-            onClick={() => setMenuOpen(false)}
-            className="fixed top-85 inset-0 bg-black/50"
-          />
-        )}
-
         <ul className="flex flex-col px-6 py-4 gap-4">
           {navLinks.map((link) => (
             <li key={link.href}>
