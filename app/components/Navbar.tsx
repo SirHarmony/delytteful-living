@@ -30,9 +30,9 @@ export default function Navbar() {
         {/* Wordmark */}
         <Link
           to="/"
-          className="font-display text-xl font-light tracking-widest text-charcoal hover:text-rose-deep transition-colors"
+          className="font-display text-sm md:text-xl font-light tracking-widest text-cream hover:text-rose-deep transition-colors"
         >
-          Delytte <span className="italic text-rose-deep">Living</span>
+          Delytteful <span className="italic text-rose-deep">Living</span>
         </Link>
 
         {/* Desktop links */}
@@ -41,7 +41,7 @@ export default function Navbar() {
             <li key={link.href}>
               <a
                 href={link.href}
-                className="font-body text-xs tracking-[0.25em] uppercase text-warm-grey hover:text-charcoal transition-colors"
+                className="font-body text-xs tracking-[0.25em] uppercase text-warm-grey hover:text-rose-deep transition-colors"
               >
                 {link.label}
               </a>
@@ -50,7 +50,7 @@ export default function Navbar() {
           <li>
             <a
               href="#shop"
-              className="font-body text-xs tracking-[0.2em] uppercase px-5 py-2.5 bg-charcoal text-cream hover:bg-rose-deep transition-colors duration-300"
+              className="font-body text-xs tracking-[0.2em] uppercase px-5 py-2.5 bg-charcoal text-cream hover:bg-rose-deep transition-colors duration-300 active:scale-[0.98]"
             >
               Shop Now
             </a>
@@ -59,7 +59,7 @@ export default function Navbar() {
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden flex flex-col gap-1.5 p-2"
+          className="md:hidden flex flex-col gap-1.5 p-2 cursor-pointer"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
@@ -97,7 +97,7 @@ export default function Navbar() {
             <a
               href="#shop"
               onClick={() => setMenuOpen(false)}
-              className="inline-block font-body text-xs tracking-[0.2em] uppercase px-5 py-2.5 bg-charcoal text-cream mt-2"
+              className="inline-block font-body text-xs tracking-[0.2em] uppercase px-5 py-2.5 bg-charcoal text-cream mt-2 active:scale-[0.98]"
             >
               Shop Now
             </a>

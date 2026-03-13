@@ -10,7 +10,10 @@ const footerLinks = {
     { label: "Shop on Payhip", href: "https://payhip.com/DelytteLiving" },
     { label: "Shop on Etsy", href: "https://etsy.com/shop/DelytteLiving" },
     { label: "YouTube Channel", href: "https://youtube.com/@DelytteLiving" },
-    { label: "Delytte Safaris", href: "https://delyttesafaris.com" },
+    {
+      label: "Delytte Safaris",
+      href: "https://delytte-safaris.sirharmony.dev/",
+    },
   ],
   Navigate: [
     { label: "About", href: "#about" },
