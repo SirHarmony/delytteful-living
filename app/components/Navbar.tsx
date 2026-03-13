@@ -77,7 +77,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       <div
-        className={`fixed md:hidden bg-cream/85 border-t border-cream-dark transition-all duration-300 overflow-hidden z-20 ${
+        className={`md:hidden bg-cream/85 border-t border-cream-dark transition-all duration-300 overflow-hidden z-20 ${
           menuOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
@@ -85,7 +85,7 @@ export default function Navbar() {
         {menuOpen && (
           <div
             onClick={() => setMenuOpen(false)}
-            className="fixed inset-0 bg-black/20 z-10"
+            className="fixed inset-0 bg-black/50 z-10"
           />
         )}
 
