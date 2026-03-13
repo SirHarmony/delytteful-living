@@ -1,4 +1,5 @@
 import type { Route } from "./+types/home";
+import Navbar from "~/components/Navbar";
 import Hero from "~/components/Hero";
 import About from "~/components/About";
 import Pillars from "~/components/Pillars";
@@ -26,6 +27,7 @@ export function meta({}: Route.MetaArgs) {
 export default function Home() {
   return (
     <main>
+      <Navbar />
       <Hero />
       <About />
       <Pillars />
