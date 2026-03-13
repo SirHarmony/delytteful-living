@@ -77,15 +77,17 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       <div
-        className={`relative md:hidden bg-cream/85 border-t border-cream-dark transition-all duration-300 overflow-hidden ${
+        className={`fixed md:hidden bg-cream/85 border-t border-cream-dark transition-all duration-300 overflow-hidden z-20 ${
           menuOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
         {/* Dark overlay */}
-        <div
-          onClick={() => setMenuOpen(false)}
-          className="absolute h-screen w-screen bg-black/10"
-        />
+        {menuOpen && (
+          <div
+            onClick={() => setMenuOpen(false)}
+            className="fixed inset-0 bg-black/20 z-10"
+          />
+        )}
 
         <ul className="flex flex-col px-6 py-4 gap-4">
           {navLinks.map((link) => (
