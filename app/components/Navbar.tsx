@@ -85,7 +85,7 @@ export default function Navbar() {
         {menuOpen && (
           <div
             onClick={() => setMenuOpen(false)}
-            className="fixed inset-0 bg-black/50 z-10"
+            className="fixed inset-0 bg-black/50"
           />
         )}
 
