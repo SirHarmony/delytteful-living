@@ -27,22 +27,26 @@ export default function Footer() {
   return (
     <footer className="bg-charcoal text-cream">
       {/* Anchor verse banner */}
-      <div className="border-b border-cream/10 py-10 px-6">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-4 text-center">
-          <div className="w-12 h-px bg-rose/40 hidden sm:block flex-shrink-0" />
+      <div className="border-b border-sage bg-rose py-10">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-center">
+          <div className="w-12 h-px bg-charcoal hidden sm:block flex-shrink-0" />
           <div>
-            <p className="font-display italic text-cream/60 text-lg leading-relaxed">
-              "Delight yourself also in the Lord, and He shall give you the{" "}
-              <span className="text-rose not-italic">
-                desires of your heart.
-              </span>
-              "
+            <p className="uppercase font-body text-rose-deep text-xs mb-4">
+              Anchor Verse · The Heart of Delytteful Living
             </p>
-            <p className="font-body text-[9px] tracking-[0.4em] uppercase text-rose/40 mt-2">
+            <p className="font-display italic text-cream/90 text-base md:text-lg leading-relaxed">
+              "
+              <span className="text-charcoal not-italic">
+                Delight yourself{" "}
+              </span>{" "}
+              also in the Lord, <br /> and He shall give you the desires of your
+              heart. "
+            </p>
+            <p className="font-body text-[9px] tracking-[0.4em] uppercase text-charcoal mt-2">
               Psalm 37 : 4
             </p>
           </div>
-          <div className="w-12 h-px bg-rose/40 hidden sm:block flex-shrink-0" />
+          <div className="w-12 h-px bg-charcoal hidden sm:block flex-shrink-0" />
         </div>
       </div>
 

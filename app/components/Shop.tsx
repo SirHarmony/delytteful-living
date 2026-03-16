@@ -94,7 +94,7 @@ export default function Shop() {
               $19.00
             </p>
 
-            <div className="flex gap-4 mt-8 self-start group font-body text-[11px] bg-rose text-charcoal hover:text-cream hover:bg-rose-deep tracking-[0.2em] transition-all duration-300 active:scale-[0.98] px-8 py-4 cursor-pointer">
+            <div className="flex gap-4 mt-8 self-start group font-body text-[11px] bg-rose text-charcoal hover:text-cream hover:bg-rose-deep tracking-[0.2em] transition-all duration-300 active:scale-[0.98] px-8 py-4 cursor-pointer animate-pulse">
               <a href="" className="tracking-[0.25em] uppercase">
                 Get the Bundle
               </a>
