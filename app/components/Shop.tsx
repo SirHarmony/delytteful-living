@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { products, type Pillar } from "~/data/products";
 import ProductCard from "~/components/ProductCard";
+import { Star } from "lucide-react";
 
 type Filter = "all" | Pillar;
 
@@ -60,6 +61,48 @@ export default function Shop() {
           {filtered.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
+        </div>
+
+        {/* Bundle */}
+        <div className="flex flex-col md:flex-row items-center justify-between bg-charcoal p-4 md:p-8 mt-8 md:mt-10">
+          <div className="max-w-[450px] mb-6 md:mb-0">
+            <div className="flex items-center gap-2 mb-4">
+              <Star className="text-[#FF9D00] w-3 md:w-4 h-3 md:h-4" />
+              <p className="text-rose-deep uppercase text-xs font-body">
+                Featured Bundle
+              </p>
+            </div>
+            <h3 className="text-white/70 font-display text-xl md:text-3xl font-thin  mb-4">
+              The Delytteful{" "}
+              <span className="text-rose-deep italic">Starter Pack</span>
+            </h3>
+            <p className="font-body text-xs text-white/60 font-extralight">
+              Get all three introductory journals — Faith, Tech & Travel — in
+              one discounted bundle. The perfect starting point for the young
+              adult ready to grow in every dimension.
+            </p>
+          </div>
+
+          <div className="self-start">
+            <p className="text-rose/60 font-extralight font-body text-sm md:text-base line-through mb-1">
+              $23.00
+            </p>
+            <p className="text-sage/50 font-body text-xs uppercase mb-6 tracking-wide">
+              You save $4 →
+            </p>
+            <p className="text-white/90 text-3xl md:text-5xl font-display mb-2 md:mb-6">
+              $19.00
+            </p>
+
+            <div className="flex gap-4 mt-8 self-start group font-body text-[11px] bg-rose text-charcoal hover:text-cream hover:bg-rose-deep tracking-[0.2em] transition-all duration-300 active:scale-[0.98] px-8 py-4 cursor-pointer">
+              <a href="" className="tracking-[0.25em] uppercase">
+                Get the Bundle
+              </a>
+              <span className="group-hover:translate-x-2 transition-all duration-300">
+                →
+              </span>
+            </div>
+          </div>
         </div>
 
         {/* Store CTAs */}
