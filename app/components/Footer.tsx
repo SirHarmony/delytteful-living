@@ -35,12 +35,12 @@ export default function Footer() {
               Anchor Verse · The Heart of Delytteful Living
             </p>
             <p className="font-display italic text-cream/90 text-base md:text-lg leading-relaxed">
-              "
+              "Delight yourself also in the Lord, <br /> and He shall give you
+              the{" "}
               <span className="text-charcoal not-italic">
-                Delight yourself{" "}
-              </span>{" "}
-              also in the Lord, <br /> and He shall give you the desires of your
-              heart. "
+                desires of your heart.
+              </span>
+              {""}"
             </p>
             <p className="font-body text-[9px] tracking-[0.4em] uppercase text-charcoal mt-2">
               Psalm 37 : 4
