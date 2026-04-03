@@ -9,13 +9,13 @@ import Footer from "~/components/Footer";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Delytte Living — Faith · Tech · Travel" },
+    { title: "Delytteful Living — Faith · Tech · Travel" },
     {
       name: "description",
       content:
         "Digital journals, workbooks and guides for the ambitious young adult. Grow in faith, build a career in tech, and explore Africa — with intention.",
     },
-    { property: "og:title", content: "Delytte Living" },
+    { property: "og:title", content: "Delytteful Living" },
     {
       property: "og:description",
       content:

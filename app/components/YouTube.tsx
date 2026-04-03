@@ -41,7 +41,7 @@ export default function YouTube() {
               <span className="italic text-rose">every week.</span>
             </h2>
             <p className="font-body font-light text-cream/50 leading-relaxed text-xs md:text-base mb-10 max-w-md">
-              The Delytte Living YouTube channel brings our three pillars to
+              The Delytteful Living YouTube channel brings our three pillars to
               life — practical videos on faith, tech, and travel, completely
               free. New content every week.
             </p>
