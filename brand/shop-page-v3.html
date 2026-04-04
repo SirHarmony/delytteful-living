@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Delytteful Living — Shop · Faith · Music · Tech · Travel</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --amber:#B8912A; --amber-light:#E8D4A0; --amber-deep:#8A6A1A; --amber-pale:#FAF6EC;
+    --wine:#7A2D3A;  --wine-light:#D4A0A8;  --wine-deep:#521E28;  --wine-pale:#F5ECEE;
+    --teal:#3D6B6B;  --teal-light:#C2D6D6;  --teal-deep:#254545;  --teal-pale:#EEF4F4;
+    --parchment:#F6F3EE; --parchment-dark:#EDE9E2;
+    --charcoal:#2E2E2E; --warm-grey:#7A7068; --white:#FFFFFF; --ink:#1A1C1A;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--parchment);font-family:'Jost',sans-serif;color:var(--charcoal);font-weight:300;}
+
+  /* ── SHOP HERO ── */
+  .shop-hero{
+    background:var(--ink);padding:80px 80px 64px;
+    position:relative;overflow:hidden;
+  }
+  .shop-hero::before{
+    content:'';position:absolute;inset:0;
+    background:
+      radial-gradient(ellipse 50% 70% at 85% 50%, rgba(122,45,58,.15) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 60% at 15% 60%, rgba(184,145,42,.10) 0%, transparent 55%),
+      radial-gradient(ellipse 30% 50% at 50% 100%, rgba(61,107,107,.08) 0%, transparent 50%);
+  }
+  .shop-nav-hint{
+    font-size:10px;letter-spacing:.3em;text-transform:uppercase;
+    color:rgba(255,255,255,.3);margin-bottom:16px;
+    display:flex;align-items:center;gap:8px;position:relative;z-index:1;
+  }
+  .shop-nav-hint span{color:var(--amber-light);}
+  .shop-hero-content{position:relative;z-index:1;max-width:640px;}
+  .shop-eyebrow{
+    font-size:10px;letter-spacing:.4em;text-transform:uppercase;
+    color:var(--amber);opacity:.9;margin-bottom:14px;
+  }
+  .shop-title{
+    font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:300;
+    color:var(--parchment);line-height:1.05;letter-spacing:.02em;
+  }
+  .shop-title em{font-style:italic;color:var(--amber-light);}
+  .shop-desc{
+    font-size:14px;color:rgba(255,255,255,.45);
+    line-height:1.8;margin-top:16px;max-width:500px;
+  }
+  .shop-verse{
+    margin-top:28px;padding:16px 20px;border-left:2px solid var(--amber);
+  }
+  .shop-verse p{
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:15px;color:rgba(255,255,255,.45);line-height:1.55;
+  }
+  .shop-verse cite{
+    font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+    color:rgba(255,255,255,.25);margin-top:6px;display:block;font-style:normal;
+  }
+
+  /* ── PILLAR NAV STRIP ── */
+  .pillar-nav{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+  }
+  .pn-cell{
+    padding:16px 24px;display:flex;align-items:center;gap:10px;
+    cursor:pointer;transition:opacity .15s;
+  }
+  .pn-cell:hover{opacity:.85;}
+  .pn-cell.faith  {background:var(--amber);}
+  .pn-cell.music  {background:var(--wine);}
+  .pn-cell.tech   {background:var(--teal);}
+  .pn-cell.travel {background:var(--charcoal);}
+  .pn-icon{font-size:16px;flex-shrink:0;}
+  .pn-label{font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.6);}
+  .pn-name{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:400;color:white;line-height:1.1;}
+
+  /* ── FILTER BAR ── */
+  .filter-bar{
+    background:var(--white);padding:0 80px;
+    display:flex;align-items:center;gap:0;
+    border-bottom:1px solid var(--parchment-dark);
+    position:sticky;top:0;z-index:10;
+  }
+  .filter-tab{
+    padding:18px 22px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--warm-grey);cursor:pointer;border-bottom:2px solid transparent;
+    transition:all .2s;white-space:nowrap;
+  }
+  .filter-tab.active.faith  {color:var(--charcoal);border-bottom-color:var(--amber);}
+  .filter-tab.active.music  {color:var(--charcoal);border-bottom-color:var(--wine);}
+  .filter-tab.active.tech   {color:var(--charcoal);border-bottom-color:var(--teal);}
+  .filter-tab.active.travel {color:var(--charcoal);border-bottom-color:var(--charcoal);}
+  .filter-tab.active.all    {color:var(--charcoal);border-bottom-color:var(--amber);}
+  .filter-tab:hover:not(.active){color:var(--charcoal);}
+  .filter-spacer{flex:1;}
+  .filter-sort{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--warm-grey);padding:18px 0;}
+
+  /* ── PRODUCT GRID ── */
+  .shop-content{padding:64px 80px;}
+  .section-heading{display:flex;align-items:center;gap:16px;margin-bottom:32px;}
+  .section-heading h3{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:400;}
+  .section-heading::after{content:'';flex:1;height:1px;background:var(--parchment-dark);}
+  .section-heading .pillar-tag{
+    font-size:9px;letter-spacing:.3em;text-transform:uppercase;
+    padding:4px 12px;font-weight:400;flex-shrink:0;
+  }
+  .products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:56px;}
+  .product-card{
+    background:var(--white);cursor:pointer;
+    transition:transform .2s,box-shadow .2s;position:relative;
+  }
+  .product-card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,.08);}
+  .product-cover{
+    aspect-ratio:3/4;position:relative;overflow:hidden;
+    display:flex;flex-direction:column;justify-content:space-between;padding:24px 20px;
+  }
+  .pc-tag{font-size:8px;letter-spacing:.3em;text-transform:uppercase;}
+  .pc-title{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;line-height:1.2;}
+  .pc-title em{font-style:italic;}
+  .pc-brand{font-size:8px;letter-spacing:.25em;text-transform:uppercase;}
+  .product-badge{
+    position:absolute;top:12px;right:12px;
+    font-size:8px;letter-spacing:.2em;text-transform:uppercase;
+    padding:4px 10px;font-weight:500;
+  }
+  .badge-new      {background:var(--amber);color:white;}
+  .badge-pdf      {background:var(--teal);color:white;}
+  .badge-music    {background:var(--wine);color:white;}
+  .badge-featured {background:var(--ink);color:var(--amber-light);}
+  .product-info{padding:20px 20px 16px;}
+  .product-title{font-size:13px;font-weight:400;color:var(--charcoal);line-height:1.4;margin-bottom:6px;}
+  .product-meta{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--warm-grey);margin-bottom:14px;}
+  .product-footer{
+    display:flex;justify-content:space-between;align-items:center;
+    padding-top:12px;border-top:1px solid var(--parchment-dark);
+  }
+  .product-price{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--charcoal);}
+  .cta-amber{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);cursor:pointer;border-bottom:1px solid transparent;transition:border-color .2s;}
+  .cta-amber:hover{border-bottom-color:var(--amber);}
+  .cta-wine {font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--wine); cursor:pointer;border-bottom:1px solid transparent;transition:border-color .2s;}
+  .cta-wine:hover {border-bottom-color:var(--wine);}
+  .cta-teal {font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--teal); cursor:pointer;border-bottom:1px solid transparent;transition:border-color .2s;}
+  .cta-teal:hover {border-bottom-color:var(--teal);}
+
+  /* ── BUNDLE STRIP ── */
+  .bundle-strip{
+    background:var(--ink);padding:48px 80px;
+    display:flex;justify-content:space-between;align-items:center;gap:48px;
+    border-top:2px solid var(--wine);border-bottom:2px solid var(--wine);
+  }
+  .bundle-eyebrow{font-size:10px;letter-spacing:.35em;text-transform:uppercase;color:var(--wine-light);margin-bottom:10px;}
+  .bundle-title{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:300;color:var(--parchment);line-height:1.1;}
+  .bundle-title em{font-style:italic;color:var(--wine-light);}
+  .bundle-desc{font-size:13px;color:rgba(255,255,255,.45);line-height:1.8;margin-top:12px;max-width:480px;}
+  .bundle-cta-area{text-align:right;flex-shrink:0;}
+  .bundle-was{font-size:13px;color:rgba(255,255,255,.25);text-decoration:line-through;margin-bottom:2px;}
+  .bundle-save{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--wine-light);margin-bottom:4px;}
+  .bundle-price{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;color:var(--wine-light);line-height:1;}
+  .bundle-btn{
+    display:inline-block;margin-top:12px;
+    background:var(--wine);color:white;
+    padding:12px 24px;font-size:10px;letter-spacing:.25em;
+    text-transform:uppercase;cursor:pointer;font-weight:400;
+  }
+  .bundle-btn:hover{background:var(--wine-deep);}
+
+  /* ── STARTER BUNDLE ── */
+  .starter-bundle{
+    background:var(--amber-pale);padding:48px 80px;
+    display:flex;justify-content:space-between;align-items:center;gap:48px;
+    border-top:2px solid var(--amber);
+  }
+  .sb-btn{
+    display:inline-block;margin-top:12px;
+    background:var(--amber);color:var(--ink);
+    padding:12px 24px;font-size:10px;letter-spacing:.25em;
+    text-transform:uppercase;cursor:pointer;font-weight:500;
+  }
+  .sb-btn:hover{background:var(--amber-deep);color:white;}
+
+  /* ── SHOP FOOTER ── */
+  .shop-footer{
+    background:var(--parchment-dark);padding:48px 80px;
+    display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;
+    border-top:1px solid var(--parchment-dark);
+  }
+  .sf-block h4{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--charcoal);margin-bottom:12px;font-weight:500;}
+  .sf-block p{font-size:13px;color:var(--warm-grey);line-height:1.75;}
+  .sf-block a{color:var(--amber);text-decoration:none;border-bottom:1px solid transparent;}
+  .sf-block a:hover{border-bottom-color:var(--amber);}
+
+  /* ── PILLAR COLOUR DOTS ── */
+  .pillar-dot-lg{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+</style>
+</head>
+<body>
+
+<!-- SHOP HERO -->
+<div class="shop-hero">
+  <div class="shop-nav-hint">
+    <span>Delytteful Living</span> / Shop
+  </div>
+  <div class="shop-hero-content">
+    <p class="shop-eyebrow">Faith · Music · Tech · Africa Travel</p>
+    <h1 class="shop-title">Digital Resources<br>for a <em>Purposeful</em> Life</h1>
+    <p class="shop-desc">Journals, courses, planners, and guides for the young adult building something that matters — in faith, in music, in career, and in the world.</p>
+    <div class="shop-verse">
+      <p>"Delight yourself also in the Lord, and He shall give you the desires of your heart."</p>
+      <cite>Psalm 37 : 4</cite>
+    </div>
+  </div>
+</div>
+
+<!-- FOUR-PILLAR NAV STRIP -->
+<div class="pillar-nav">
+  <div class="pn-cell faith">
+    <div class="pn-icon">✦</div>
+    <div><div class="pn-label">Pillar One</div><div class="pn-name">Faith &amp; Purpose</div></div>
+  </div>
+  <div class="pn-cell music">
+    <div class="pn-icon">♩</div>
+    <div><div class="pn-label">Pillar Two</div><div class="pn-name">Music &amp; Worship</div></div>
+  </div>
+  <div class="pn-cell tech">
+    <div class="pn-icon">⌘</div>
+    <div><div class="pn-label">Pillar Three</div><div class="pn-name">Tech &amp; Career</div></div>
+  </div>
+  <div class="pn-cell travel">
+    <div class="pn-icon">◈</div>
+    <div><div class="pn-label">Pillar Four</div><div class="pn-name">Africa Travel</div></div>
+  </div>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <div class="filter-tab active all">All Products</div>
+  <div class="filter-tab">Faith &amp; Purpose</div>
+  <div class="filter-tab">Music &amp; Worship</div>
+  <div class="filter-tab">Tech &amp; Career</div>
+  <div class="filter-tab">Africa Travel</div>
+  <div class="filter-tab">Bundles</div>
+  <div class="filter-spacer"></div>
+  <div class="filter-sort">Sort: Featured ▾</div>
+</div>
+
+<div class="shop-content">
+
+  <!-- ══════ FAITH & PURPOSE ══════ -->
+  <div class="section-heading">
+    <div class="pillar-dot-lg" style="background:var(--amber);"></div>
+    <h3>Faith &amp; Purpose</h3>
+    <div class="pillar-tag" style="background:var(--amber-pale);color:var(--amber-deep);">Pillar 01</div>
+  </div>
+  <div class="products-grid">
+
+    <div class="product-card">
+      <div class="product-cover" style="background:var(--amber-light);">
+        <span class="pc-tag" style="color:var(--warm-grey);">90-Day Journal</span>
+        <div>
+          <div class="pc-title" style="color:var(--charcoal);">Anchored<br><em>Classic Edition</em></div>
+          <div style="width:20px;height:1px;background:var(--amber);opacity:.6;margin:8px 0;"></div>
+          <div class="pc-brand" style="color:var(--warm-grey);">Delytteful Living</div>
+        </div>
+        <div class="product-badge badge-new">New</div>
+      </div>
+      <div class="product-info">
+        <div class="product-title">Anchored — 90-Day Faith Journal · Classic Edition</div>
+        <div class="product-meta">PDF Download · Printable Journal</div>
+        <div class="product-footer">
+          <div class="product-price">$9.00</div>
+          <div class="cta-amber">Buy Now →</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-cover" style="background:#EDD8D8;">
+        <span class="pc-tag" style="color:var(--warm-grey);">90-Day Journal</span>
+        <div>
+          <div class="pc-title" style="color:var(--charcoal);">Anchored<br><em style="color:#B8877F;">Feminine Edition</em></div>
+          <div style="width:20px;height:1px;background:#D4A5A5;opacity:.8;margin:8px 0;"></div>
+          <div class="pc-brand" style="color:var(--warm-grey);">Delytteful Living</div>
+        </div>
+        <div class="product-badge badge-new">New</div>
+      </div>
+      <div class="product-info">
+        <div class="product-title">Anchored — 90-Day Faith Journal · Feminine Edition</div>
+        <div class="product-meta">PDF Download · Printable Journal</div>
+        <div class="product-footer">
+          <div class="product-price">$9.00</div>
+          <div class="cta-amber">Buy Now →</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-cover" style="background:#C4A882;">
+        <span class="pc-tag" style="color:var(--warm-grey);">Daily Planner</span>
+        <div>
+          <div class="pc-title" style="color:var(--charcoal);">Steadfast<br><em>Prayer Planner</em></div>
+          <div style="width:20px;height:1px;background:var(--charcoal);opacity:.2;margin:8px 0;"></div>
+          <div class="pc-brand" style="color:var(--warm-grey);">Delytteful Living</div>
+        </div>
+        <div class="product-badge badge-pdf">PDF</div>
+      </div>
+      <div class="product-info">
+        <div class="product-title">Steadfast — Prayer &amp; Gratitude Planner · Daily Journal</div>
+        <div class="product-meta">PDF Download · 90-Day Planner</div>
+        <div class="product-footer">
+          <div class="product-price">$7.00</div>
+          <div class="cta-amber">Buy Now →</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ══════ MUSIC & WORSHIP ══════ -->
+  <div class="section-heading">
+    <div class="pillar-dot-lg" style="background:var(--wine);"></div>
+    <h3>Music &amp; Worship</h3>
+    <div class="pillar-tag" style="background:var(--wine-pale);color:var(--wine-deep);">Pillar 02</div>
+  </div>
+  <div class="products-grid">
+
+    <div class="product-card">
+      <div class="product-cover" style="background:var(--wine-deep);">
+        <span class="pc-tag" style="color:rgba(255,255,255,.45);">Guitar Course</span>
+        <div>
+          <div class="pc-title" style="color:var(--wine-light);">Fretboard<br><em style="color:white;">Chronicles</em></div>
+          <div style="width:20px;height:1px;background:var(--wine-light);opacity:.5;margin:8px 0;"></div>
+          <div class="pc-brand" style="color:rgba(255,255,255,.3);">Delytteful Living</div>
+        </div>
+        <div class="product-badge badge-music">Course</div>
+      </div>
+      <div class="product-info">
+        <div class="product-title">Fretboard Chronicles — Acoustic Guitar Zero to Intermediate</div>
+        <div class="product-meta">High-Content E-Book · 10 Chapters</div>
+        <div class="product-footer">
+          <div class="product-price">$17.00</div>
+          <div class="cta-wine">Buy Now →</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-cover" style="background:var(--ink);">
+        <span class="pc-tag" style="color:rgba(255,255,255,.4);">Drumming Guide</span>
+        <div>
+          <div class="pc-title" style="color:var(--parchment);">Rhythm<br><em style="color:var(--wine-light);">Foundation</em></div>
+          <div style="width:20px;height:1px;background:var(--wine);opacity:.7;margin:8px 0;"></div>
+          <div class="pc-brand" style="color:rgba(255,255,255,.3);">Delytteful Living</div>
+        </div>
+        <div class="product-badge badge-music">Course</div>
+      </div>
+      <div class="product-info">
+        <div class="product-title">Rhythm Foundation — Beginner Drumming Guide</div>
+        <div class="product-meta">High-Content E-Book · Beginner Drummer</div>
+        <div class="product-footer">
+          <div class="product-price">$17.00</div>
+          <div class="cta-wine">Buy Now →</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-cover" style="background:var(--wine-light);">
+        <span class="pc-tag" style="color:var(--wine);">Worship Guide</span>
+        <div>
+          <div class="pc-title" style="color:var(--wine-deep);">Worship Team<br><em>Toolkit</em></div>
+          <div style="width:20px;height:1px;background:var(--wine);opacity:.4;margin:8px 0;"></div>
+          <div class="pc-brand" style="color:var(--wine);opacity:.6;">Delytteful Living</div>
+        </div>
+        <div class="product-badge badge-featured">Guide</div>
+      </div>
+      <div class="product-info">
+        <div class="product-title">Worship Team Toolkit — Leading a Band in Church</div>
+        <div class="product-meta">High-Content Guide · Music Directors</div>
+        <div class="product-footer">
+          <div class="product-price">$27.00</div>
+          <div class="cta-wine">Buy Now →</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-cover" style="background:var(--wine-pale);border:1px solid var(--wine-light);">
+        <span class="pc-tag" style="color:var(--wine);">Theory Guide</span>
+        <div>
+          <div class="pc-title" style="color:var(--wine-deep);">Music Theory<br><em>for Worship</em></div>
+          <div style="width:20px;height:1px;background:var(--wine);opacity:.4;margin:8px 0;"></div>
+          <div class="pc-brand" style="color:var(--wine);opacity:.5;">Delytteful Living</div>
+        </div>
+        <div class="product-badge badge-pdf">PDF</div>
+      </div>
+      <div class="product-info">
+        <div class="product-title">Essential Music Theory for Worship Musicians</div>
+        <div class="product-meta">Mid-Content Guide · Keys, Chords &amp; Scales</div>
+        <div class="product-footer">
+          <div class="product-price">$12.00</div>
+          <div class="cta-wine">Buy Now →</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-cover" style="background:var(--charcoal);">
+        <span class="pc-tag" style="color:rgba(255,255,255,.4);">Printable Sheets</span>
+        <div>
+          <div class="pc-title" style="color:var(--parchment);">Drum Pattern<br><em style="color:var(--wine-light);">Library</em></div>
+          <div style="width:20px;height:1px;background:var(--wine);opacity:.6;margin:8px 0;"></div>
+          <div class="pc-brand" style="color:rgba(255,255,255,.3);">Delytteful Living</div>
+        </div>
+        <div class="product-badge badge-pdf">PDF</div>
+      </div>
+      <div class="product-info">
+        <div class="product-title">Drum Pattern Library — Printable Beat Sheets</div>
+        <div class="product-meta">Low-Content · Printable · Instant Download</div>
+        <div class="product-footer">
+          <div class="product-price">$7.00</div>
+          <div class="cta-wine">Buy Now →</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-cover" style="background:var(--wine-pale);border:1px solid var(--wine-light);">
+        <span class="pc-tag" style="color:var(--wine);">Planner</span>
+        <div>
+          <div class="pc-title" style="color:var(--wine-deep);">Music Director's<br><em>Planner</em></div>
+          <div style="width:20px;height:1px;background:var(--wine);opacity:.4;margin:8px 0;"></div>
+          <div class="pc-brand" style="color:var(--wine);opacity:.5;">Delytteful Living</div>
+        </div>
+        <div class="product-badge badge-new">New</div>
+      </div>
+      <div class="product-info">
+        <div class="product-title">The Music Director's Planner — Weekly Planning Journal</div>
+        <div class="product-meta">Low-Content · Worship Leaders &amp; Directors</div>
+        <div class="product-footer">
+          <div class="product-price">$9.00</div>
+          <div class="cta-wine">Buy Now →</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ══════ TECH & CAREER ══════ -->
+  <div class="section-heading">
+    <div class="pillar-dot-lg" style="background:var(--teal);"></div>
+    <h3>Tech &amp; Career</h3>
+    <div class="pillar-tag" style="background:var(--teal-pale);color:var(--teal-deep);">Pillar 03</div>
+  </div>
+  <div class="products-grid">
+
+    <div class="product-card">
+      <div class="product-cover" style="background:var(--teal-deep);">
+        <span class="pc-tag" style="color:rgba(255,255,255,.4);">Cheatsheet</span>
+        <div>
+          <div class="pc-title" style="color:var(--teal-light);">Frontend Dev<br><em style="color:white;">Roadmap</em></div>
+          <div style="width:20px;height:1px;background:var(--teal-light);opacity:.5;margin:8px 0;"></div>
+          <div class="pc-brand" style="color:rgba(255,255,255,.3);">Delytteful Living</div>
+        </div>
+        <div class="product-badge badge-new">New</div>
+      </div>
+      <div class="product-info">
+        <div class="product-title">Frontend Dev Roadmap 2025 — Cheatsheet PDF</div>
+        <div class="product-meta">PDF Download · Self-Taught to Hired</div>
+        <div class="product-footer">
+          <div class="product-price">$9.00</div>
+          <div class="cta-teal">Buy Now →</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-cover" style="background:var(--parchment-dark);">
+        <span class="pc-tag" style="color:var(--warm-grey);">Habit Tracker</span>
+        <div>
+          <div class="pc-title" style="color:var(--charcoal);">Coding Progress<br><em style="color:var(--teal);">Journal</em></div>
+          <div style="width:20px;height:1px;background:var(--teal);opacity:.5;margin:8px 0;"></div>
+          <div class="pc-brand" style="color:var(--warm-grey);">Delytteful Living</div>
+        </div>
+        <div class="product-badge badge-pdf">PDF</div>
+      </div>
+      <div class="product-info">
+        <div class="product-title">Coding Progress Tracker &amp; Developer Habit Journal</div>
+        <div class="product-meta">PDF Download · Study Planner</div>
+        <div class="product-footer">
+          <div class="product-price">$7.00</div>
+          <div class="cta-teal">Buy Now →</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-cover" style="background:var(--teal);">
+        <span class="pc-tag" style="color:rgba(255,255,255,.5);">Complete Guide</span>
+        <div>
+          <div class="pc-title" style="color:white;">Self-Taught<br><em>to Hired</em></div>
+          <div style="width:20px;height:1px;background:rgba(255,255,255,.4);margin:8px 0;"></div>
+          <div class="pc-brand" style="color:rgba(255,255,255,.4);">Delytteful Living</div>
+        </div>
+        <div class="product-badge badge-pdf">E-Book</div>
+      </div>
+      <div class="product-info">
+        <div class="product-title">From Self-Taught to Hired: The Frontend Dev Guide</div>
+        <div class="product-meta">High-Content E-Book · 80+ pages</div>
+        <div class="product-footer">
+          <div class="product-price">$27.00</div>
+          <div class="cta-teal">Buy Now →</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ══════ AFRICA TRAVEL ══════ -->
+  <div class="section-heading">
+    <div class="pillar-dot-lg" style="background:var(--warm-grey);"></div>
+    <h3>Africa Travel</h3>
+    <div class="pillar-tag" style="background:var(--parchment-dark);color:var(--warm-grey);">Pillar 04</div>
+  </div>
+  <div class="products-grid">
+
+    <div class="product-card">
+      <div class="product-cover" style="background:var(--ink);">
+        <span class="pc-tag" style="color:rgba(255,255,255,.4);">Trip Planner</span>
+        <div>
+          <div class="pc-title" style="color:var(--parchment);">East Africa<br><em style="color:var(--amber-light);">Itinerary</em> Planner</div>
+          <div style="width:20px;height:1px;background:var(--amber);opacity:.6;margin:8px 0;"></div>
+          <div class="pc-brand" style="color:rgba(255,255,255,.3);">Delytte Safaris × Delytteful Living</div>
+        </div>
+        <div class="product-badge badge-new">New</div>
+      </div>
+      <div class="product-info">
+        <div class="product-title">East Africa Trip Planner — Itinerary &amp; Budget PDF</div>
+        <div class="product-meta">PDF Download · Printable Planner</div>
+        <div class="product-footer">
+          <div class="product-price">$9.00</div>
+          <div class="cta-amber">Buy Now →</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-cover" style="background:var(--amber-deep);">
+        <span class="pc-tag" style="color:rgba(255,255,255,.45);">Checklist Bundle</span>
+        <div>
+          <div class="pc-title" style="color:var(--amber-light);">Africa Packing<br><em>Bundle</em></div>
+          <div style="width:20px;height:1px;background:rgba(255,255,255,.3);margin:8px 0;"></div>
+          <div class="pc-brand" style="color:rgba(255,255,255,.3);">Delytteful Living</div>
+        </div>
+        <div class="product-badge badge-pdf">PDF</div>
+      </div>
+      <div class="product-info">
+        <div class="product-title">Africa Packing Checklist Bundle — 10 Countries</div>
+        <div class="product-meta">PDF Set · Printable · Instant Download</div>
+        <div class="product-footer">
+          <div class="product-price">$7.00</div>
+          <div class="cta-amber">Buy Now →</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-cover" style="background:var(--charcoal);">
+        <span class="pc-tag" style="color:rgba(255,255,255,.4);">Complete Guide</span>
+        <div>
+          <div class="pc-title" style="color:var(--parchment);">Budget Travel<br>in <em style="color:var(--amber-light);">Africa</em></div>
+          <div style="width:20px;height:1px;background:var(--amber);opacity:.5;margin:8px 0;"></div>
+          <div class="pc-brand" style="color:rgba(255,255,255,.3);">Delytteful Living</div>
+        </div>
+        <div class="product-badge badge-pdf">E-Book</div>
+      </div>
+      <div class="product-info">
+        <div class="product-title">Budget Travel in Africa — Young Adult's Guide</div>
+        <div class="product-meta">High-Content E-Book · 70+ pages</div>
+        <div class="product-footer">
+          <div class="product-price">$19.00</div>
+          <div class="cta-amber">Buy Now →</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- WORSHIP MUSICIAN BUNDLE -->
+<div class="bundle-strip">
+  <div>
+    <div class="bundle-eyebrow">♩ Featured Bundle — Music &amp; Worship</div>
+    <div class="bundle-title">The Worship <em>Musician Bundle</em></div>
+    <div class="bundle-desc">Guitar course, music theory guide, and drum pattern library — everything a worship musician needs to grow their craft and serve their church better. Save $19 when you buy all three together.</div>
+  </div>
+  <div class="bundle-cta-area">
+    <div class="bundle-was">$36.00</div>
+    <div class="bundle-save">You save $19 →</div>
+    <div class="bundle-price">$37.00</div>
+    <div><div class="bundle-btn">Get the Bundle →</div></div>
+  </div>
+</div>
+
+<!-- STARTER BUNDLE -->
+<div class="starter-bundle">
+  <div>
+    <div style="font-size:10px;letter-spacing:.35em;text-transform:uppercase;color:var(--amber-deep);margin-bottom:10px;">⭐ Starter Bundle</div>
+    <div style="font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:300;color:var(--charcoal);line-height:1.1;">The Delytteful <em style="font-style:italic;color:var(--amber);">Starter Pack</em></div>
+    <div style="font-size:13px;color:var(--warm-grey);line-height:1.8;margin-top:12px;max-width:480px;">Faith journal, guitar course, and travel planner — one from each pillar, one discounted bundle. The perfect starting point for a purposeful life.</div>
+  </div>
+  <div style="text-align:right;flex-shrink:0;">
+    <div style="font-size:13px;color:var(--warm-grey);text-decoration:line-through;margin-bottom:2px;">$35.00</div>
+    <div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--amber-deep);margin-bottom:4px;">You save $10 →</div>
+    <div style="font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;color:var(--amber);line-height:1;">$25.00</div>
+    <div><div class="sb-btn">Get the Bundle →</div></div>
+  </div>
+</div>
+
+<!-- SHOP FOOTER -->
+<div class="shop-footer">
+  <div class="sf-block">
+    <h4>Instant Download</h4>
+    <p>All products are delivered as PDF downloads immediately after purchase. Print at home or use any PDF reader on any device.</p>
+  </div>
+  <div class="sf-block">
+    <h4>Also Available On</h4>
+    <p>Find all products on <a href="#">Etsy</a> and <a href="#">Payhip</a>. Prefer to browse those platforms? We're there too.</p>
+  </div>
+  <div class="sf-block">
+    <h4>About Delytteful Living</h4>
+    <p>A brand by a musician, developer, and safari entrepreneur from Nairobi — built for people who refuse to choose between faith, music, career, and adventure. <em>"Delight yourself in the Lord." — Ps 37:4</em></p>
+  </div>
+</div>
+
+</body>
+</html>
