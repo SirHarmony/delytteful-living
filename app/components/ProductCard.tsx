@@ -1,4 +1,5 @@
-import { Product } from "~/data/products";
+import { Link } from "react-router";
+import type { Product } from "~/data/products";
 import { pillarMeta } from "~/data/products";
 
 interface ProductCardProps {
@@ -9,11 +10,11 @@ export default function ProductCard({ product }: ProductCardProps) {
   const meta = pillarMeta[product.pillar];
 
   const badgeColors: Record<string, string> = {
-    Bestseller: "bg-rose text-charcoal",
-    Flagship: "bg-charcoal text-cream",
-    Popular: "bg-sage text-charcoal",
-    New: "bg-rose-deep text-cream",
-    "Best Value": "bg-sage-deep text-cream",
+    Bestseller: "bg-amber text-charcoal",
+    Flagship: "bg-charcoal text-parchment",
+    Popular: "bg-teal text-charcoal",
+    New: "bg-amber-deep text-parchment",
+    "Best Value": "bg-teal-deep text-parchment",
   };
 
   const typeLabel: Record<string, string> = {
@@ -22,16 +23,24 @@ export default function ProductCard({ product }: ProductCardProps) {
     bundle: "Bundle",
   };
 
+  const placeholderBg =
+    product.pillar === "faith"
+      ? "#E8D4A0"
+      : product.pillar === "music"
+        ? "#D4A0A8"
+        : product.pillar === "tech"
+          ? "#C2D6D6"
+          : "#EDE9E2";
+
   return (
-    <article className="max-h-450px] lg:max-w-[280px] xl:max-w-[300px] group bg-cream flex flex-col relative overflow-hidden border border-cream-dark hover:border-rose transition-colors duration-300 hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
-      {/* Cover image */}
-      <div className="relative aspect-[3/4] overflow-hidden bg-cream-dark">
+    <article className="w-full lg:max-w-[260px] xl:max-w-[280px] group bg-parchment flex flex-col relative overflow-hidden border border-parchment-dark hover:border-amber transition-colors duration-300 hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
+      {/* 2:3 — common print / KDP trade cover proportion (taller than 3:4) */}
+      <div className="relative aspect-[2/3] overflow-hidden bg-parchment-dark">
         <img
           src={product.cover_image}
           alt={product.title}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
           onError={(e) => {
-            /* Fallback cover placeholder */
             const target = e.currentTarget;
             target.style.display = "none";
             const parent = target.parentElement;
@@ -39,12 +48,7 @@ export default function ProductCard({ product }: ProductCardProps) {
               const placeholder = document.createElement("div");
               placeholder.className =
                 "cover-placeholder w-full h-full flex flex-col items-center justify-center gap-3 p-8";
-              placeholder.style.background =
-                product.pillar === "faith"
-                  ? "#EDD8D8"
-                  : product.pillar === "tech"
-                    ? "#C2D4BF"
-                    : "#F0E8DE";
+              placeholder.style.background = placeholderBg;
               const emoji = document.createElement("span");
               emoji.style.fontSize = "3rem";
               emoji.textContent = meta.emoji;
@@ -59,16 +63,14 @@ export default function ProductCard({ product }: ProductCardProps) {
           }}
         />
 
-        {/* Badge */}
         {product.badge && (
           <span
-            className={`absolute top-3 left-3 font-body text-[9px] tracking-[0.2em] uppercase px-2.5 py-1 ${badgeColors[product.badge] ?? "bg-cream text-charcoal"}`}
+            className={`absolute top-3 left-3 font-body text-[9px] tracking-[0.2em] uppercase px-2.5 py-1 ${badgeColors[product.badge] ?? "bg-parchment text-charcoal"}`}
           >
             {product.badge}
           </span>
         )}
 
-        {/* Pillar tag */}
         <span
           className={`absolute bottom-3 left-3 font-body text-[9px] tracking-[0.15em] uppercase px-2.5 py-1 ${meta.bg} ${meta.color}`}
         >
@@ -76,13 +78,17 @@ export default function ProductCard({ product }: ProductCardProps) {
         </span>
       </div>
 
-      {/* Content */}
       <div className="flex flex-col flex-1 p-6">
         <div className="flex items-start justify-between gap-3 mb-3">
           <h3 className="font-display text-lg font-light text-charcoal leading-snug flex-1">
-            {product.title}
+            <Link
+              to={`/shop/${product.slug}`}
+              className="hover:text-amber-deep transition-colors"
+            >
+              {product.title}
+            </Link>
           </h3>
-          <span className="font-body font-medium text-sage-deep text-base flex-shrink-0">
+          <span className="font-body font-medium text-teal-deep text-base flex-shrink-0">
             ${product.price}
           </span>
         </div>
@@ -95,31 +101,21 @@ export default function ProductCard({ product }: ProductCardProps) {
           {product.description}
         </p>
 
-        {/* CTA buttons */}
         <div className="flex gap-2 mt-auto">
           <a
-            href={product.payhip_url}
+            href={product.amazon_url}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 text-center font-body text-[10px] tracking-[0.2em] uppercase py-3 bg-charcoal text-cream hover:bg-rose-deep transition-colors duration-300 active:scale-[0.98]"
+            className="flex-1 text-center font-body text-[10px] tracking-[0.2em] uppercase py-3 bg-charcoal text-parchment hover:bg-amber-deep transition-colors duration-300 active:scale-[0.98]"
           >
             Amazon
-          </a>
-
-          <a
-            href={product.payhip_url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-1 text-center font-body text-[10px] tracking-[0.2em] uppercase py-3 border border-cream-dark text-warm-grey hover:border-charcoal hover:text-charcoal transition-colors duration-300 active:scale-[0.98]"
-          >
-            Payhip
           </a>
 
           <a
             href={product.etsy_url}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 text-center font-body text-[10px] tracking-[0.2em] uppercase py-3 bg-charcoal text-cream hover:bg-rose-deep transition-colors duration-300 active:scale-[0.98]"
+            className="flex-1 text-center font-body text-[10px] tracking-[0.2em] uppercase py-3 border border-parchment-dark text-warm-grey hover:border-charcoal hover:text-charcoal transition-colors duration-300 active:scale-[0.98]"
           >
             Etsy
           </a>

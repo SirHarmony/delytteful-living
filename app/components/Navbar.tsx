@@ -1,9 +1,18 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
+
+const pillarLinks = [
+  { to: "/faith", label: "Faith & Purpose" },
+  { to: "/music", label: "Music & Worship" },
+  { to: "/tech", label: "Tech & Career" },
+  { to: "/travel", label: "Africa Travel" },
+];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
+  const isHome = location.pathname === "/";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -11,112 +20,156 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Lock page scrolling when menu is open:
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
   }, [menuOpen]);
 
-  const navLinks = [
-    { href: "#about", label: "About" },
-    { href: "#pillars", label: "Pillars" },
-    { href: "#shop", label: "Shop" },
-    { href: "#youtube", label: "YouTube" },
-  ];
+  const aboutHref = isHome ? "#about" : "/#about";
+  const youtubeHref = isHome ? "#youtube" : "/#youtube";
+
+  const textMuted = scrolled ? "text-warm-grey" : "text-parchment/80";
+  const textBrand = scrolled ? "text-charcoal" : "text-parchment";
 
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 z-50 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "bg-cream/90 backdrop-blur-md shadow-sm border-b border-cream-dark"
+            ? "bg-parchment/90 backdrop-blur-md shadow-sm border-b border-parchment-dark"
             : "bg-transparent"
         }`}
       >
         <nav className="max-w-7xl mx-auto px-6 lg:px-12 h-16 flex items-center justify-between">
-          {/* Wordmark */}
           <Link
             to="/"
-            className={`font-display text-sm md:text-xl font-light tracking-widest ${scrolled ? "text-charcoal " : "text-cream "}hover:text-rose-deep transition-colors`}
+            className={`font-display text-sm md:text-xl font-light tracking-widest ${textBrand} hover:text-amber-deep transition-colors`}
           >
-            Delytteful <span className="italic text-rose-deep">Living</span>
+            Delytteful <span className="italic text-amber-deep">Living</span>
           </Link>
 
-          {/* Desktop links */}
-          <ul className="hidden md:flex items-center gap-10">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  className="font-body text-xs tracking-[0.25em] uppercase text-warm-grey hover:text-rose-deep transition-colors"
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
+          <ul className="hidden lg:flex items-center gap-8">
             <li>
               <a
-                href="#shop"
-                className="font-body text-xs tracking-[0.2em] uppercase px-5 py-2.5 bg-charcoal text-cream hover:bg-rose-deep transition-colors duration-300 active:scale-[0.98]"
+                href={aboutHref}
+                className={`font-body text-xs tracking-[0.2em] uppercase ${textMuted} hover:text-amber-deep transition-colors`}
+              >
+                About
+              </a>
+            </li>
+            <li className="relative group">
+              <span
+                className={`font-body text-xs tracking-[0.2em] uppercase ${textMuted} cursor-default`}
+              >
+                Pillars ▾
+              </span>
+              <ul className="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all bg-parchment border border-parchment-dark shadow-lg min-w-[220px] py-2 z-50">
+                {pillarLinks.map((p) => (
+                  <li key={p.to}>
+                    <Link
+                      to={p.to}
+                      className="block px-4 py-2 font-body text-xs text-warm-grey hover:bg-parchment-dark hover:text-charcoal"
+                    >
+                      {p.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </li>
+            <li>
+              <Link
+                to="/shop"
+                className={`font-body text-xs tracking-[0.2em] uppercase ${textMuted} hover:text-amber-deep transition-colors`}
+              >
+                Shop
+              </Link>
+            </li>
+            <li>
+              <a
+                href={youtubeHref}
+                className={`font-body text-xs tracking-[0.2em] uppercase ${textMuted} hover:text-amber-deep transition-colors`}
+              >
+                YouTube
+              </a>
+            </li>
+            <li>
+              <Link
+                to="/faq"
+                className={`font-body text-xs tracking-[0.2em] uppercase ${textMuted} hover:text-amber-deep transition-colors`}
+              >
+                FAQ
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/shop"
+                className="font-body text-xs tracking-[0.2em] uppercase px-5 py-2.5 bg-charcoal text-parchment hover:bg-amber-deep transition-colors duration-300 active:scale-[0.98]"
               >
                 Shop Now
-              </a>
+              </Link>
             </li>
           </ul>
 
-          {/* Mobile hamburger */}
           <button
-            className="md:hidden flex flex-col gap-1.5 p-2 cursor-pointer"
+            className="lg:hidden flex flex-col gap-1.5 p-2 cursor-pointer"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu"
+            type="button"
           >
             <span
-              className={`block w-6 h-px ${scrolled ? "bg-charcoal" : "bg-cream"} transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`}
+              className={`block w-6 h-px ${scrolled ? "bg-charcoal" : "bg-parchment"} transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`}
             />
             <span
-              className={`block w-6 h-px ${scrolled ? "bg-charcoal" : "bg-cream"} transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`}
+              className={`block w-6 h-px ${scrolled ? "bg-charcoal" : "bg-parchment"} transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`}
             />
             <span
-              className={`block w-6 h-px ${scrolled ? "bg-charcoal" : "bg-cream"} transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`}
+              className={`block w-6 h-px ${scrolled ? "bg-charcoal" : "bg-parchment"} transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`}
             />
           </button>
         </nav>
 
-        {/* Mobile menu */}
         <div
-          className={`md:hidden bg-cream/85 border-t border-cream-dark transition-all duration-300 overflow-hidden z-[60] ${
-            menuOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0"
+          className={`lg:hidden bg-parchment/95 border-t border-parchment-dark transition-all duration-300 overflow-hidden ${
+            menuOpen ? "max-h-[480px] opacity-100" : "max-h-0 opacity-0"
           }`}
         >
-          <ul className="flex flex-col px-6 py-4 gap-4">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  onClick={() => setMenuOpen(false)}
-                  className="block font-body text-xs tracking-[0.25em] uppercase text-warm-grey hover:text-charcoal transition-colors py-1"
-                >
-                  {link.label}
-                </a>
+          <ul className="flex flex-col px-6 py-4 gap-3">
+            <li>
+              <a href={aboutHref} onClick={() => setMenuOpen(false)} className="block font-body text-xs uppercase text-warm-grey">
+                About
+              </a>
+            </li>
+            {pillarLinks.map((p) => (
+              <li key={p.to}>
+                <Link to={p.to} onClick={() => setMenuOpen(false)} className="block font-body text-xs text-warm-grey">
+                  {p.label}
+                </Link>
               </li>
             ))}
             <li>
-              <a
-                href="#shop"
-                onClick={() => setMenuOpen(false)}
-                className="inline-block font-body text-xs tracking-[0.2em] uppercase px-5 py-2.5 bg-charcoal text-cream mt-2 active:scale-[0.98]"
-              >
-                Shop Now
+              <Link to="/shop" onClick={() => setMenuOpen(false)} className="block font-body text-xs uppercase">
+                Shop
+              </Link>
+            </li>
+            <li>
+              <a href={youtubeHref} onClick={() => setMenuOpen(false)} className="block font-body text-xs">
+                YouTube
               </a>
+            </li>
+            <li>
+              <Link to="/faq" onClick={() => setMenuOpen(false)} className="block font-body text-xs">
+                FAQ
+              </Link>
             </li>
           </ul>
         </div>
       </header>
 
-      {/* Dark overlay in mobile view*/}
       {menuOpen && (
-        <div
+        <button
+          type="button"
+          aria-label="Close menu"
           onClick={() => setMenuOpen(false)}
-          className="fixed top-16 inset-0 bg-black/50 z-40"
+          className="fixed top-16 inset-0 bg-black/50 z-40 lg:hidden"
         />
       )}
     </>
