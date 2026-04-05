@@ -16,9 +16,10 @@ export default function Navbar() {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
+    onScroll();
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [location.pathname]);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
@@ -27,14 +28,16 @@ export default function Navbar() {
   const aboutHref = isHome ? "#about" : "/#about";
   const youtubeHref = isHome ? "#youtube" : "/#youtube";
 
-  const textMuted = scrolled ? "text-warm-grey" : "text-parchment/80";
-  const textBrand = scrolled ? "text-charcoal" : "text-parchment";
+  /** Off home, always use solid bar + dark link colors so nav stays readable on light page backgrounds. */
+  const solidNav = !isHome || scrolled;
+  const textMuted = solidNav ? "text-warm-grey" : "text-parchment/80";
+  const textBrand = solidNav ? "text-charcoal" : "text-parchment";
 
   return (
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled
+          solidNav
             ? "bg-parchment/90 backdrop-blur-md shadow-sm border-b border-parchment-dark"
             : "bg-transparent"
         }`}
@@ -116,13 +119,13 @@ export default function Navbar() {
             type="button"
           >
             <span
-              className={`block w-6 h-px ${scrolled ? "bg-charcoal" : "bg-parchment"} transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`}
+              className={`block w-6 h-px ${solidNav ? "bg-charcoal" : "bg-parchment"} transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`}
             />
             <span
-              className={`block w-6 h-px ${scrolled ? "bg-charcoal" : "bg-parchment"} transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`}
+              className={`block w-6 h-px ${solidNav ? "bg-charcoal" : "bg-parchment"} transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`}
             />
             <span
-              className={`block w-6 h-px ${scrolled ? "bg-charcoal" : "bg-parchment"} transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`}
+              className={`block w-6 h-px ${solidNav ? "bg-charcoal" : "bg-parchment"} transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`}
             />
           </button>
         </nav>

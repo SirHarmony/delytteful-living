@@ -3,6 +3,7 @@ import { getProductsByPillar, type Pillar } from "~/data/products";
 import type { PillarSlug } from "~/data/pillars";
 import { pillarDefinitions, musicEmbed } from "~/data/pillars";
 import ProductCard from "~/components/ProductCard";
+import ScrollReveal from "~/components/ScrollReveal";
 
 type Props = { pillarSlug: PillarSlug };
 
@@ -16,20 +17,25 @@ export default function PillarPage({ pillarSlug }: Props) {
   return (
     <div className="bg-parchment pt-24 pb-20 px-6">
       <div className="max-w-7xl mx-auto">
-        <p className="font-body text-[10px] tracking-[0.45em] uppercase text-warm-grey mb-4">
-          {def.number} — {def.label}
-        </p>
-        <h1
-          className="font-display font-light text-charcoal leading-tight mb-6"
-          style={{ fontSize: "clamp(2rem, 5vw, 3.25rem)" }}
-        >
-          {def.heading}
-        </h1>
-        <p className="font-body font-light text-warm-grey max-w-2xl text-sm md:text-base leading-relaxed mb-10">
-          {def.body}
-        </p>
+        <ScrollReveal>
+          <div className="mb-10">
+            <p className="font-body text-[10px] tracking-[0.45em] uppercase text-warm-grey mb-4">
+              {def.number} — {def.label}
+            </p>
+            <h1
+              className="font-display font-light text-charcoal leading-tight mb-6"
+              style={{ fontSize: "clamp(2rem, 5vw, 3.25rem)" }}
+            >
+              {def.heading}
+            </h1>
+            <p className="font-body font-light text-warm-grey max-w-2xl text-sm md:text-base leading-relaxed">
+              {def.body}
+            </p>
+          </div>
+        </ScrollReveal>
 
         {pillarSlug === "music" && (
+          <ScrollReveal>
           <section
             className="mb-16 p-6 md:p-8 bg-wine-pale border border-wine/20"
             aria-labelledby="listen-heading"
@@ -75,15 +81,19 @@ export default function PillarPage({ pillarSlug }: Props) {
               />
             </div>
           </section>
+          </ScrollReveal>
         )}
 
+        <ScrollReveal>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
           {main.map((p) => (
             <ProductCard key={p.id} product={p} />
           ))}
         </div>
+        </ScrollReveal>
 
         {suggestions.length > 0 && (
+        <ScrollReveal>
         <section className="border-t border-parchment-dark pt-14">
           <h2 className="font-display text-2xl text-charcoal mb-2">
             Complete the set
@@ -105,6 +115,7 @@ export default function PillarPage({ pillarSlug }: Props) {
             .
           </p>
         </section>
+        </ScrollReveal>
         )}
       </div>
     </div>
