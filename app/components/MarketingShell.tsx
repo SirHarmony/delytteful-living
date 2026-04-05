@@ -1,5 +1,6 @@
 import Navbar from "~/components/Navbar";
 import Footer from "~/components/Footer";
+import ScrollReveal from "~/components/ScrollReveal";
 
 export default function MarketingShell({
   children,
@@ -10,7 +11,9 @@ export default function MarketingShell({
     <>
       <Navbar />
       {children}
-      <Footer />
+      <ScrollReveal>
+        <Footer />
+      </ScrollReveal>
     </>
   );
 }

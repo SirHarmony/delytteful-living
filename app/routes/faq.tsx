@@ -1,6 +1,7 @@
 import type { Route } from "./+types/faq";
 import { Link } from "react-router";
 import MarketingShell from "~/components/MarketingShell";
+import ScrollReveal from "~/components/ScrollReveal";
 
 const faqs = [
   {
@@ -36,28 +37,34 @@ export default function FaqRoute() {
     <MarketingShell>
       <div className="bg-parchment pt-28 pb-24 px-6">
         <div className="max-w-2xl mx-auto">
-          <h1 className="font-display text-3xl md:text-4xl text-charcoal mb-4">
-            Frequently asked questions
-          </h1>
-          <p className="font-body text-warm-grey mb-12">
-            Quick answers about shopping, formats, and pricing.{" "}
-            <Link to="/" className="text-amber-deep hover:underline">
-              Back to home
-            </Link>
-            .
-          </p>
-          <ul className="space-y-8">
-            {faqs.map((item) => (
-              <li key={item.q} className="border-b border-parchment-dark pb-8">
-                <h2 className="font-display text-lg text-charcoal mb-2">
-                  {item.q}
-                </h2>
-                <p className="font-body text-sm text-warm-grey leading-relaxed">
-                  {item.a}
-                </p>
-              </li>
-            ))}
-          </ul>
+          <ScrollReveal>
+            <div className="mb-12">
+              <h1 className="font-display text-3xl md:text-4xl text-charcoal mb-4">
+                Frequently asked questions
+              </h1>
+              <p className="font-body text-warm-grey">
+                Quick answers about shopping, formats, and pricing.{" "}
+                <Link to="/" className="text-amber-deep hover:underline">
+                  Back to home
+                </Link>
+                .
+              </p>
+            </div>
+          </ScrollReveal>
+          <ScrollReveal>
+            <ul className="space-y-8">
+              {faqs.map((item) => (
+                <li key={item.q} className="border-b border-parchment-dark pb-8">
+                  <h2 className="font-display text-lg text-charcoal mb-2">
+                    {item.q}
+                  </h2>
+                  <p className="font-body text-sm text-warm-grey leading-relaxed">
+                    {item.a}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </ScrollReveal>
         </div>
       </div>
     </MarketingShell>

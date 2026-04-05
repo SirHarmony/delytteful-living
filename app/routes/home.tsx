@@ -2,6 +2,7 @@ import type { Route } from "./+types/home";
 import Navbar from "~/components/Navbar";
 import Hero from "~/components/Hero";
 import PillarStrip from "~/components/PillarStrip";
+import ScrollReveal from "~/components/ScrollReveal";
 import About from "~/components/About";
 import Pillars from "~/components/Pillars";
 import LeadMagnet from "~/components/LeadMagnet";
@@ -74,14 +75,30 @@ export default function Home() {
     <main>
       <Navbar />
       <Hero />
-      <PillarStrip />
-      <About />
-      <Pillars />
-      <ShopTeaser />
-      <LeadMagnet />
-      <YouTube />
-      <FaqTeaser />
-      <Footer />
+      <ScrollReveal>
+        <PillarStrip />
+      </ScrollReveal>
+      <ScrollReveal>
+        <About />
+      </ScrollReveal>
+      <ScrollReveal>
+        <Pillars />
+      </ScrollReveal>
+      <ScrollReveal>
+        <ShopTeaser />
+      </ScrollReveal>
+      <ScrollReveal>
+        <LeadMagnet />
+      </ScrollReveal>
+      <ScrollReveal>
+        <YouTube />
+      </ScrollReveal>
+      <ScrollReveal>
+        <FaqTeaser />
+      </ScrollReveal>
+      <ScrollReveal>
+        <Footer />
+      </ScrollReveal>
     </main>
   );
 }

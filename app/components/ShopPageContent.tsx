@@ -6,6 +6,7 @@ import {
   type Pillar,
 } from "~/data/products";
 import ProductCard from "~/components/ProductCard";
+import ScrollReveal from "~/components/ScrollReveal";
 import { Star } from "lucide-react";
 import { getRecentProductSlugs } from "~/lib/recentlyViewed";
 
@@ -68,42 +69,47 @@ export default function ShopPageContent() {
   return (
     <section className="bg-parchment py-28 px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-8">
-          <p className="font-body text-[10px] tracking-[0.45em] uppercase text-warm-grey mb-4">
-            The Shop
-          </p>
-          <h1
-            className="font-display font-light text-charcoal leading-tight"
-            style={{ fontSize: "clamp(2rem, 5vw, 3.25rem)" }}
-          >
-            Resources to help you{" "}
-            <span className="italic text-amber-deep">thrive.</span>
-          </h1>
-          <p className="font-body font-light text-warm-grey mt-5 max-w-md mx-auto text-xs md:text-base leading-relaxed">
-            Journals, planners, roadmaps and guides — listed on{" "}
-            <strong className="text-charcoal font-normal">Etsy</strong> and{" "}
-            <strong className="text-charcoal font-normal">Amazon KDP</strong>.
-          </p>
-          <p className="font-body text-[11px] text-warm-grey mt-3 max-w-lg mx-auto">
-            Prices shown in{" "}
-            <span className="text-charcoal font-medium">USD</span>. Your bank or
-            marketplace may convert at checkout if you purchase outside the US.
-          </p>
-        </div>
+        <ScrollReveal>
+          <div className="text-center mb-8">
+            <p className="font-body text-[10px] tracking-[0.45em] uppercase text-warm-grey mb-4">
+              The Shop
+            </p>
+            <h1
+              className="font-display font-light text-charcoal leading-tight"
+              style={{ fontSize: "clamp(2rem, 5vw, 3.25rem)" }}
+            >
+              Resources to help you{" "}
+              <span className="italic text-amber-deep">thrive.</span>
+            </h1>
+            <p className="font-body font-light text-warm-grey mt-5 max-w-md mx-auto text-xs md:text-base leading-relaxed">
+              Journals, planners, roadmaps and guides — listed on{" "}
+              <strong className="text-charcoal font-normal">Etsy</strong> and{" "}
+              <strong className="text-charcoal font-normal">Amazon KDP</strong>.
+            </p>
+            <p className="font-body text-[11px] text-warm-grey mt-3 max-w-lg mx-auto">
+              Prices shown in{" "}
+              <span className="text-charcoal font-medium">USD</span>. Your bank
+              or marketplace may convert at checkout if you purchase outside the
+              US.
+            </p>
+          </div>
+        </ScrollReveal>
 
-        <div className="max-w-md mx-auto mb-10">
-          <label htmlFor="shop-search" className="sr-only">
-            Search products
-          </label>
-          <input
-            id="shop-search"
-            type="search"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search by title or topic…"
-            className="w-full font-body text-sm px-4 py-3 border border-parchment-dark bg-white text-charcoal placeholder:text-warm-grey/60 focus:outline-none focus:ring-2 focus:ring-amber/40 focus:border-amber"
-          />
-        </div>
+        <ScrollReveal>
+        <div>
+          <div className="max-w-md mx-auto mb-10">
+            <label htmlFor="shop-search" className="sr-only">
+              Search products
+            </label>
+            <input
+              id="shop-search"
+              type="search"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Search by title or topic…"
+              className="w-full font-body text-sm px-4 py-3 border border-parchment-dark bg-white text-charcoal placeholder:text-warm-grey/60 focus:outline-none focus:ring-2 focus:ring-amber/40 focus:border-amber"
+            />
+          </div>
 
         <div className="flex flex-wrap justify-center gap-2 mb-14">
           {filters.map((filter) => (
@@ -121,8 +127,11 @@ export default function ShopPageContent() {
             </button>
           ))}
         </div>
+        </div>
+        </ScrollReveal>
 
         {recentProducts.length > 0 && (
+          <ScrollReveal>
           <div className="mb-14">
             <p className="font-body text-[10px] tracking-[0.35em] uppercase text-warm-grey mb-4">
               Recently viewed
@@ -139,8 +148,10 @@ export default function ShopPageContent() {
               ))}
             </div>
           </div>
+          </ScrollReveal>
         )}
 
+        <ScrollReveal>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-10 bg-parchment-dark">
           {filtered.map((product) => (
             <ProductCard key={product.id} product={product} />
@@ -162,7 +173,9 @@ export default function ShopPageContent() {
             </button>
           </p>
         )}
+        </ScrollReveal>
 
+        <ScrollReveal>
         <div className="flex flex-col md:flex-row items-center justify-between bg-charcoal p-4 md:p-8 mt-8 md:mt-10">
           <div className="max-w-[450px] mb-6 md:mb-0">
             <div className="flex items-center gap-2 mb-4">
@@ -212,7 +225,9 @@ export default function ShopPageContent() {
             </div>
           </div>
         </div>
+        </ScrollReveal>
 
+        <ScrollReveal>
         <div className="mt-16 grid sm:grid-cols-2 gap-px bg-parchment-dark">
           <a
             href={AMZ}
@@ -248,6 +263,7 @@ export default function ShopPageContent() {
             </span>
           </a>
         </div>
+        </ScrollReveal>
       </div>
     </section>
   );
