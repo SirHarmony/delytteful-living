@@ -1,3 +1,4 @@
+import { Eye } from "lucide-react";
 import { Link } from "react-router";
 import type { Product } from "~/data/products";
 import { pillarMeta } from "~/data/products";
@@ -80,14 +81,23 @@ export default function ProductCard({ product }: ProductCardProps) {
 
       <div className="flex flex-col flex-1 p-6">
         <div className="flex items-start justify-between gap-3 mb-3">
-          <h3 className="font-display text-lg font-light text-charcoal leading-snug flex-1">
+          <div className="flex items-start gap-2.5 flex-1 min-w-0">
+            <h3 className="font-display text-lg font-light text-charcoal leading-snug min-w-0">
+              <Link
+                to={`/shop/${product.slug}`}
+                className="hover:text-amber-deep transition-colors"
+              >
+                {product.title}
+              </Link>
+            </h3>
             <Link
               to={`/shop/${product.slug}`}
-              className="hover:text-amber-deep transition-colors"
+              aria-label={`View details: ${product.title}`}
+              className="mt-0.5 shrink-0 inline-flex items-center justify-center rounded-full border border-parchment-dark/90 p-1.5 text-warm-grey hover:text-amber-deep hover:border-amber-deep/50 hover:bg-amber/5 transition-colors duration-300 active:scale-95"
             >
-              {product.title}
+              <Eye className="w-[17px] h-[17px]" strokeWidth={1.5} />
             </Link>
-          </h3>
+          </div>
           <span className="font-body font-medium text-teal-deep text-base flex-shrink-0">
             ${product.price}
           </span>
