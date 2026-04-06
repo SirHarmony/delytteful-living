@@ -75,6 +75,15 @@ export default function Footer() {
             — digital journals, planners, and e-books for young adults who
             refuse to choose between faith, creativity, career, and adventure.
           </p>
+          <p className="font-body text-[10px] tracking-[0.25em] uppercase text-parchment/30 mt-6 mb-2">
+            Email
+          </p>
+          <a
+            href="mailto:info@delyttefulliving.com"
+            className="font-body text-[13px] font-light text-parchment/55 hover:text-amber transition-colors duration-200 inline-block"
+          >
+            info@delyttefulliving.com
+          </a>
           <div className="mt-6 flex gap-4">
             {[
               { label: "YouTube", href: "https://youtube.com/@DelytteLiving", icon: "▶" },
