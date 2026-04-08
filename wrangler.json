@@ -1,7 +1,18 @@
 {
   "name": "delytteful-living",
   "main": "./workers/app.ts",
-  "compatibility_date": "2026-03-11",
-  "compatibility_flags": ["nodejs_compat"],
-  "assets": { "directory": "./build/client" }
+  "compatibility_date": "2026-04-01",
+
+  "vars": {
+    "ENV": "production"
+  },
+
+  "env": {
+    "preview": {
+      "name": "delytteful-living-preview",
+      "vars": {
+        "ENV": "preview"
+      }
+    }
+  }
 }
