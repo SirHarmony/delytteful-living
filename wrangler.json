@@ -1,6 +1,6 @@
 {
   "name": "delytteful-living",
-  "main": "src/index.ts",
+  "main": "./workers/app.ts",
   "compatibility_date": "2026-04-01",
 
   "vars": {
