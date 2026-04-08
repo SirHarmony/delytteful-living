@@ -13,7 +13,7 @@ import { OrganizationJsonLd, WebSiteJsonLd } from "~/components/JsonLd";
 import "./app.css";
 
 export const links: Route.LinksFunction = () => [
-  { rel: "icon", type: "image/jpg", href: "./public/delytteful living.jpg" },
+  { rel: "icon", type: "image/png", href: "/favicon.png" },
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
   {
     rel: "preconnect",
