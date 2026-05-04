@@ -6,19 +6,23 @@ import ScrollReveal from "~/components/ScrollReveal";
 const faqs = [
   {
     q: "Where are products sold?",
-    a: "Digital products are listed on Etsy and Amazon (KDP). This site links to those storefronts; checkout happens on Etsy or Amazon.",
+    a: "Digital products are listed on Gumroad and Amazon (KDP). This site links to those storefronts; checkout happens on Gumroad or Amazon.",
   },
   {
     q: "What currency are prices in?",
-    a: "We display prices in USD. International banks or marketplaces may convert to your local currency at checkout.",
+    a: "We display prices in USD or Kshs (For physical products). International banks or marketplaces may convert to your local currency at checkout.",
   },
   {
     q: "Do I get a physical book?",
-    a: "Many listings are print-on-demand or digital PDFs depending on the product — check the Etsy or Amazon listing for format details.",
+    a: "Many listings are print-on-demand or digital PDFs depending on the product — check the Gumroad or Amazon listing for format details.",
   },
   {
     q: "Is the free lead magnet really free?",
-    a: "Yes — it is a sample resource to thank you for joining the list. Replace this copy when your real magnet is live.",
+    a: "Yes — it is a sample resource to thank you for jvisiting our shop.",
+  },
+  {
+    q: "How do I get the physical products?",
+    a: "Physical products are sold in Kenya. Each product liks to our WhatsApp catalog where you can order and pay for the product.",
   },
 ];
 
@@ -27,7 +31,8 @@ export function meta({}: Route.MetaArgs) {
     { title: "FAQ — Delytteful Living" },
     {
       name: "description",
-      content: "Common questions about Delytteful Living products and storefronts.",
+      content:
+        "Common questions about Delytteful Living products and storefronts.",
     },
   ];
 }
@@ -54,7 +59,10 @@ export default function FaqRoute() {
           <ScrollReveal>
             <ul className="space-y-8">
               {faqs.map((item) => (
-                <li key={item.q} className="border-b border-parchment-dark pb-8">
+                <li
+                  key={item.q}
+                  className="border-b border-parchment-dark pb-8"
+                >
                   <h2 className="font-display text-lg text-charcoal mb-2">
                     {item.q}
                   </h2>

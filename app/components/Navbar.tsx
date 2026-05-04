@@ -5,7 +5,7 @@ const pillarLinks = [
   { to: "/faith", label: "Faith & Purpose" },
   { to: "/music", label: "Music & Worship" },
   { to: "/tech", label: "Tech & Career" },
-  { to: "/travel", label: "Africa Travel" },
+  { to: "/travel", label: "Travel" },
 ];
 
 export default function Navbar() {
@@ -87,12 +87,12 @@ export default function Navbar() {
               </Link>
             </li>
             <li>
-              <a
+              {/* <a
                 href={youtubeHref}
                 className={`font-body text-xs tracking-[0.2em] uppercase ${textMuted} hover:text-amber-deep transition-colors`}
               >
                 YouTube
-              </a>
+              </a> */}
             </li>
             <li>
               <Link
@@ -137,29 +137,49 @@ export default function Navbar() {
         >
           <ul className="flex flex-col px-6 py-4 gap-3">
             <li>
-              <a href={aboutHref} onClick={() => setMenuOpen(false)} className="block font-body text-xs uppercase text-warm-grey">
+              <a
+                href={aboutHref}
+                onClick={() => setMenuOpen(false)}
+                className="block font-body text-xs uppercase text-warm-grey"
+              >
                 About
               </a>
             </li>
             {pillarLinks.map((p) => (
               <li key={p.to}>
-                <Link to={p.to} onClick={() => setMenuOpen(false)} className="block font-body text-xs text-warm-grey">
+                <Link
+                  to={p.to}
+                  onClick={() => setMenuOpen(false)}
+                  className="block font-body text-xs text-warm-grey"
+                >
                   {p.label}
                 </Link>
               </li>
             ))}
             <li>
-              <Link to="/shop" onClick={() => setMenuOpen(false)} className="block font-body text-xs uppercase">
+              <Link
+                to="/shop"
+                onClick={() => setMenuOpen(false)}
+                className="block font-body text-xs uppercase"
+              >
                 Shop
               </Link>
             </li>
             <li>
-              <a href={youtubeHref} onClick={() => setMenuOpen(false)} className="block font-body text-xs">
+              <a
+                href={youtubeHref}
+                onClick={() => setMenuOpen(false)}
+                className="block font-body text-xs"
+              >
                 YouTube
               </a>
             </li>
             <li>
-              <Link to="/faq" onClick={() => setMenuOpen(false)} className="block font-body text-xs">
+              <Link
+                to="/faq"
+                onClick={() => setMenuOpen(false)}
+                className="block font-body text-xs"
+              >
                 FAQ
               </Link>
             </li>

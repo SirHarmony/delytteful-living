@@ -43,7 +43,7 @@ export const pillarDefinitions: Record<PillarSlug, PillarDefinition> = {
     label: "Music & Worship",
     shortLabel: "Music",
     heading: "Worship that anchors the soul.",
-    body: "Song journals, chord planners, and worship-themed resources for creatives and worshippers who want to grow in skill and spirit.",
+    body: "Song journals, chord planners, and worship-themed resources for creatives and worshippers who want to grow in skill and in spirit.",
     items: [
       "Worship journaling prompts",
       "Chord & set list planners",
@@ -72,10 +72,10 @@ export const pillarDefinitions: Record<PillarSlug, PillarDefinition> = {
     pillar: "travel",
     number: "04",
     emoji: "✈️",
-    label: "Africa Travel",
+    label: "Travel",
     shortLabel: "Travel",
-    heading: "Africa is waiting for you.",
-    body: "Insider travel resources for young adults ready to explore the African continent on a budget, with intention, and without the overwhelm.",
+    heading: "The World is waiting for you.",
+    body: "Insider travel resources for young adults ready to explore the world on a budget, with intention, and without the overwhelm.",
     items: [
       "Country itinerary planners",
       "Budget travel guides",

@@ -39,7 +39,9 @@ function ShopTeaser() {
         </h2>
         <p className="font-body text-warm-grey mb-8 text-sm md:text-base">
           Filter by pillar, search by topic, and open full detail pages with
-          sample spreads. Prices in USD on Etsy and Amazon.
+          sample spreads. Prices in USD on Gumroad and/ or Amazon (KDP).
+          <br />
+          International orders may incur currency conversion fees.
         </p>
         <Link
           to="/shop"
@@ -90,9 +92,9 @@ export default function Home() {
       <ScrollReveal>
         <LeadMagnet />
       </ScrollReveal>
-      <ScrollReveal>
+      {/* <ScrollReveal>
         <YouTube />
-      </ScrollReveal>
+      </ScrollReveal> */}
       <ScrollReveal>
         <FaqTeaser />
       </ScrollReveal>
