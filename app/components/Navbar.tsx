@@ -26,7 +26,7 @@ export default function Navbar() {
   }, [menuOpen]);
 
   const aboutHref = isHome ? "#about" : "/#about";
-  const youtubeHref = isHome ? "#youtube" : "/#youtube";
+  // const youtubeHref = isHome ? "#youtube" : "/#youtube";
 
   /** Off home, always use solid bar + dark link colors so nav stays readable on light page backgrounds. */
   const solidNav = !isHome || scrolled;
@@ -165,7 +165,7 @@ export default function Navbar() {
                 Shop
               </Link>
             </li>
-            <li>
+            {/* <li>
               <a
                 href={youtubeHref}
                 onClick={() => setMenuOpen(false)}
@@ -173,7 +173,7 @@ export default function Navbar() {
               >
                 YouTube
               </a>
-            </li>
+            </li> */}
             <li>
               <Link
                 to="/faq"

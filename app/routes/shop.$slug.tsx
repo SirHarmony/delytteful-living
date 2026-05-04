@@ -62,7 +62,7 @@ export default function ProductDetail({ loaderData }: Route.ComponentProps) {
                 international orders.
               </p>
 
-              <div className="max-w-[min(100%,280px)] sm:max-w-2xl mx-auto mb-10 overflow-hidden border border-parchment-dark bg-parchment-dark shadow-md">
+              <div className="max-w-[min(100%,280px)] max-w-full md:max-w-2xl mx-auto mb-10 overflow-hidden border border-parchment-dark bg-parchment-dark shadow-md">
                 <img
                   src={product.detail_image}
                   alt={product.title}
