@@ -20,7 +20,7 @@ export default function LeadMagnet() {
         </h2>
         <p className="font-body text-sm text-parchment/60 mb-8 max-w-xl mx-auto">
           A one-page PDF to plan your week across faith, music practice, career
-          blocks, and rest — dummy copy until your real file is linked.
+          blocks, and rest.
         </p>
         <form
           className="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto"
@@ -43,7 +43,7 @@ export default function LeadMagnet() {
           </button>
         </form>
         <p className="font-body text-[10px] text-parchment/35 mt-4">
-          No spam — replace this form with your email provider embed when ready.{" "}
+          No spam. <br />
           <Link to="/faq" className="text-amber/80 hover:underline">
             FAQ
           </Link>

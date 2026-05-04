@@ -112,23 +112,27 @@ export default function ProductCard({ product }: ProductCardProps) {
         </p>
 
         <div className="flex gap-2 mt-auto">
-          <a
-            href={product.amazon_url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-1 text-center font-body text-[10px] tracking-[0.2em] uppercase py-3 bg-charcoal text-parchment hover:bg-amber-deep transition-colors duration-300 active:scale-[0.98]"
-          >
-            Amazon
-          </a>
+          {product.amazon_url && (
+            <a
+              href={product.amazon_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 text-center font-body text-[10px] tracking-[0.2em] uppercase py-3 bg-charcoal text-parchment hover:bg-amber-deep transition-colors duration-300 active:scale-[0.98]"
+            >
+              Amazon
+            </a>
+          )}
 
-          <a
-            href={product.etsy_url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-1 text-center font-body text-[10px] tracking-[0.2em] uppercase py-3 border border-parchment-dark text-warm-grey hover:border-charcoal hover:text-charcoal transition-colors duration-300 active:scale-[0.98]"
-          >
-            Etsy
-          </a>
+          {product.gumroad_url && (
+            <a
+              href={product.gumroad_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 text-center font-body text-[10px] tracking-[0.2em] uppercase py-3 border border-parchment-dark text-warm-grey hover:border-charcoal hover:text-charcoal transition-colors duration-300 active:scale-[0.98]"
+            >
+              Gumroad
+            </a>
+          )}
         </div>
       </div>
     </article>

@@ -31,16 +31,20 @@ export default function About() {
 
           <div className="space-y-5 font-body font-light text-warm-grey leading-[1.9] text-xs md:text-base">
             <p>
-              Delytteful Living was built at the intersection of four passions — faith, worship, building on the web, and adventure
-              — a deep Christian faith, a love for building things on the web,
-              and an irresistible pull toward the beauty and diversity of
-              nature.
+              Somewhere between healing from a brain surgery to remove a tumor,
+              and finding God in the midst of it all, I discovered there's
+              nothing that brings all my passions together, so I built one.
+              Delytteful Living was built at the intersection of four passions —
+              faith, music & worship, building on the web, and adventure — a
+              deep Christian faith, an inseperable relationship with music, a
+              love for building things on the web, and an irresistible pull
+              toward the beauty and diversity of nature.
             </p>
             <p>
               We create journals, workbooks, guides, and digital resources for
               the young adult who refuses to put their life in a box. The one
-              who wants to grow spiritually, build a meaningful career in tech,
-              and see the world — all at once.
+              who wants to grow spiritually, scale their music career, build a
+              meaningful career in tech, and see the world — all at once.
             </p>
             <p>
               Everything we make is grounded in Psalm 37:4. We believe that when
@@ -65,8 +69,8 @@ export default function About() {
               "
             </div>
             <p className="font-display italic text-parchment text-xl md:text-2xl leading-relaxed relative z-10">
-              The ambitious young adult who wants to grow in faith, career, and
-              adventure —
+              The ambitious young adult who wants to grow in faith, music,
+              career, and adventure —
               <span className="text-amber"> that's who we're here for.</span>
             </p>
             <p className="font-body text-[10px] tracking-[0.3em] uppercase text-amber/60 mt-6">

@@ -52,7 +52,7 @@ export default function Pillars() {
                 className={`bg-parchment p-6 flex flex-col group hover:shadow-lg transition-shadow duration-500 border-t-4 ${accent[slug]}`}
               >
                 <div className="flex items-start justify-between mb-8">
-                  <span className="font-display text-5xl md:text-6xl font-light text-parchment-dark select-none leading-none">
+                  <span className="font-display text-5xl md:text-6xl font-light text-[#999999] select-none leading-none">
                     {pillar.number}
                   </span>
                   <span className="text-3xl">{pillar.emoji}</span>

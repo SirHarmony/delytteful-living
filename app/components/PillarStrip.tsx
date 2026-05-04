@@ -28,7 +28,7 @@ const pillars = [
   {
     n: "04",
     pillarLabel: "Pillar four",
-    title: "Africa Travel",
+    title: "Travel",
     to: "/travel",
     className: "bg-ink",
     numClass: "text-white/20",

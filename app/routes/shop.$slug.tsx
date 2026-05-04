@@ -44,7 +44,9 @@ export default function ProductDetail({ loaderData }: Route.ComponentProps) {
                   Shop
                 </Link>
                 <span className="mx-2">/</span>
-                <span className={`inline-flex items-center gap-1 ${meta.color}`}>
+                <span
+                  className={`inline-flex items-center gap-1 ${meta.color}`}
+                >
                   {meta.emoji} {meta.label}
                 </span>
               </p>
@@ -55,35 +57,41 @@ export default function ProductDetail({ loaderData }: Route.ComponentProps) {
                 ${product.price}
               </p>
               <p className="font-body text-xs text-warm-grey mb-10">
-                Listed in USD on Etsy and Amazon; conversion may apply for
+                Listed in USD on {product.amazon_url && "Amazon"}
+                {product.gumroad_url && "and Gumroad"}; conversion may apply for
                 international orders.
               </p>
 
-              <div className="aspect-[2/3] max-w-[min(100%,280px)] sm:max-w-xs mx-auto mb-10 overflow-hidden border border-parchment-dark bg-parchment-dark shadow-md">
+              <div className="max-w-[min(100%,280px)] sm:max-w-2xl mx-auto mb-10 overflow-hidden border border-parchment-dark bg-parchment-dark shadow-md">
                 <img
-                  src={product.cover_image}
+                  src={product.detail_image}
                   alt={product.title}
                   className="w-full h-full object-cover"
                 />
               </div>
 
               <div className="flex flex-col sm:flex-row gap-3 mb-14">
-                <a
-                  href={product.etsy_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-center font-body text-[11px] tracking-[0.2em] uppercase py-4 px-6 bg-amber text-charcoal hover:bg-amber-deep hover:text-parchment transition-colors"
-                >
-                  Buy on Etsy
-                </a>
-                <a
-                  href={product.amazon_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-center font-body text-[11px] tracking-[0.2em] uppercase py-4 px-6 border border-charcoal text-charcoal hover:bg-charcoal hover:text-parchment transition-colors"
-                >
-                  Buy on Amazon (KDP)
-                </a>
+                {product.gumroad_url && (
+                  <a
+                    href={product.gumroad_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-center font-body text-[11px] tracking-[0.2em] uppercase py-4 px-6 bg-amber text-charcoal hover:bg-amber-deep hover:text-parchment transition-colors"
+                  >
+                    Buy on Gumroad
+                  </a>
+                )}
+
+                {product.amazon_url && (
+                  <a
+                    href={product.amazon_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-center font-body text-[11px] tracking-[0.2em] uppercase py-4 px-6 border border-charcoal text-charcoal hover:bg-charcoal hover:text-parchment transition-colors"
+                  >
+                    Buy on Amazon (KDP)
+                  </a>
+                )}
               </div>
             </div>
           </ScrollReveal>
