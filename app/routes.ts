@@ -2,6 +2,7 @@ import { type RouteConfig, index, route } from "@react-router/dev/routes";
 
 export default [
   index("routes/home.tsx"),
+  route("api/convertkit/subscribe", "routes/api.convertkit.subscribe.tsx"),
   route("shop", "routes/shop.tsx"),
   route("shop/:slug", "routes/shop.$slug.tsx"),
   route("faith", "routes/faith.tsx"),

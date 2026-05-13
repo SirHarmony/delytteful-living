@@ -27,7 +27,7 @@ export const products: Product[] = [
     title:
       "Rooted in Purpose Faith Journal — 90 Day Christian Devotional Planner: Classic Edition",
     pillar: "faith",
-    price: 13.33,
+    price: 13.27,
     type: "low-content",
     amazon_url: "https://www.amazon.com/dp/B0GWH7QFNC",
     gumroad_url: "",
@@ -61,7 +61,7 @@ export const products: Product[] = [
     title:
       "Rooted in Purpose Faith Journal — 90 Day Christian Devotional Planner: Feminine Edition",
     pillar: "faith",
-    price: 13.33,
+    price: 13.27,
     type: "low-content",
     amazon_url: "https://www.amazon.com/dp/B0GWHCN73T",
     gumroad_url: "",

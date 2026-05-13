@@ -86,13 +86,32 @@ export const pillarDefinitions: Record<PillarSlug, PillarDefinition> = {
 };
 
 /** Delytteful Playlist — update URLs here if the playlist changes. */
-export const musicEmbed = {
+export const playlistDetails = {
   title: "Listen — worship & focus",
   description:
-    "A curated playlist for worship and focus. Opens in the Spotify app or web player.",
-  spotifyOpenUrl:
-    "https://open.spotify.com/playlist/14nvQ34BO8kjQmjvVnkQUV?si=29aa9fee31654916",
-  spotifyEmbedSrc:
-    "https://open.spotify.com/embed/playlist/14nvQ34BO8kjQmjvVnkQUV?utm_source=generator",
-  embedHeightPx: 352,
+    "Curated playlists for worship and focus. Open in the Spotify app or web player.",
 } as const;
+
+export const musicEmbeds = [
+  {
+    spotifyOpenUrl:
+      "https://open.spotify.com/playlist/14nvQ34BO8kjQmjvVnkQUV?si=29aa9fee31654916",
+    spotifyEmbedSrc:
+      "https://open.spotify.com/embed/playlist/14nvQ34BO8kjQmjvVnkQUV?utm_source=generator",
+    embedHeightPx: 352,
+  },
+  {
+    spotifyOpenUrl:
+      "https://open.spotify.com/playlist/5mmfaY0JsGBlRSYk8LTufp?si=35ab8594c2fc4c48",
+    spotifyEmbedSrc:
+      "https://open.spotify.com/embed/playlist/5mmfaY0JsGBlRSYk8LTufp?utm_source=generator",
+    embedHeightPx: 352,
+  },
+  {
+    spotifyOpenUrl:
+      "https://open.spotify.com/playlist/42vK4Lyjot9X2T6JV6TYhl?si=e9f5d9e0d81246de",
+    spotifyEmbedSrc:
+      "https://open.spotify.com/embed/playlist/42vK4Lyjot9X2T6JV6TYhl?utm_source=generator",
+    embedHeightPx: 352,
+  },
+] as const;
