@@ -45,7 +45,7 @@ function ShopTeaser() {
         </p>
         <Link
           to="/shop"
-          className="inline-block font-body text-[11px] tracking-[0.2em] uppercase px-8 py-4 bg-charcoal text-parchment hover:bg-amber-deep transition-colors"
+          className="inline-block font-body text-[11px] tracking-[0.2em] uppercase px-8 py-4 bg-charcoal text-parchment hover:bg-amber-deep transition-colors animate-pulse cursor-pointer"
         >
           Go to shop
         </Link>

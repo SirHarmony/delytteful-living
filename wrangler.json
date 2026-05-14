@@ -4,14 +4,16 @@
   "compatibility_date": "2026-04-01",
 
   "vars": {
-    "ENV": "production"
+    "ENV": "production",
+    "CONVERTKIT_FORM_ID": "9442542"
   },
 
   "env": {
     "preview": {
       "name": "delytteful-living-preview",
       "vars": {
-        "ENV": "preview"
+        "ENV": "preview",
+        "CONVERTKIT_FORM_ID": "9442542"
       }
     }
   }
