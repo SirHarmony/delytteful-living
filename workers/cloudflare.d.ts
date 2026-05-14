@@ -1,5 +1,8 @@
 /** Minimal stubs so workers/app.ts typechecks without @cloudflare/workers-types. */
-interface Env {}
+interface Env {
+  CONVERTKIT_API_SECRET?: string;
+  CONVERTKIT_FORM_ID?: string;
+}
 
 interface ExecutionContext {
   waitUntil(p: Promise<unknown>): void;

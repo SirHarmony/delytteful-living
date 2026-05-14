@@ -131,16 +131,18 @@ export default function ProductDetail({ loaderData }: Route.ComponentProps) {
               </h2>
               <div className="grid grid-cols-2 gap-3">
                 {product.samplePages.map((src, i) => (
-                  <div
-                    key={`${src}-${i}`}
-                    className="aspect-[2/3] overflow-hidden border border-parchment-dark bg-parchment-dark"
-                  >
-                    <img
-                      src={src}
-                      alt={`Sample page ${i + 1}`}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
+                  <ScrollReveal>
+                    <div
+                      key={`${src}-${i}`}
+                      className="aspect-[2/3] overflow-hidden border border-parchment-dark bg-parchment-dark"
+                    >
+                      <img
+                        src={src}
+                        alt={`Sample page ${i + 1}`}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  </ScrollReveal>
                 ))}
               </div>
             </div>

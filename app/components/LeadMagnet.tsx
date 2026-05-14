@@ -1,8 +1,23 @@
-import { useState } from "react";
-import { Link } from "react-router";
+import { useEffect, useState } from "react";
+import { Link, useFetcher } from "react-router";
+import { LoaderCircle } from "lucide-react";
 
 export default function LeadMagnet() {
   const [email, setEmail] = useState("");
+  const fetcher = useFetcher<{
+    ok: boolean;
+    message: string;
+    fieldErrors?: { email?: string };
+  }>();
+  const isSubmitting = fetcher.state !== "idle";
+  const isSuccess = fetcher.data?.ok === true;
+  const hasError = fetcher.data?.ok === false;
+
+  useEffect(() => {
+    if (isSuccess) {
+      setEmail("");
+    }
+  }, [isSuccess]);
 
   return (
     <section
@@ -22,26 +37,45 @@ export default function LeadMagnet() {
           A one-page PDF to plan your week across faith, music practice, career
           blocks, and rest.
         </p>
-        <form
+        <fetcher.Form
+          method="post"
+          action="/api/convertkit/subscribe"
           className="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto"
-          onSubmit={(e) => {
-            e.preventDefault();
-          }}
         >
           <input
             type="email"
+            name="email"
+            required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="you@email.com"
+            placeholder="johndoe@email.com"
             className="flex-1 font-body text-sm px-4 py-3 bg-white/10 border border-white/15 text-parchment placeholder:text-parchment/35 focus:outline-none focus:ring-2 focus:ring-amber/50"
           />
           <button
             type="submit"
-            className="font-body text-[11px] tracking-[0.2em] uppercase px-6 py-3 bg-amber text-charcoal hover:bg-amber-deep transition-colors"
+            disabled={isSubmitting}
+            className="font-body text-[11px] tracking-[0.2em] uppercase px-6 py-3 bg-amber text-charcoal hover:bg-amber-deep transition-colors cursor-pointer"
           >
-            Get the PDF
+            {isSubmitting ? (
+              <LoaderCircle className="w-6 h-6 animate-spin" />
+            ) : (
+              "Get the PDF"
+            )}
           </button>
-        </form>
+        </fetcher.Form>
+        {hasError ? (
+          <p className="font-body text-[11px] text-red-300 mt-3" role="alert">
+            {fetcher.data?.fieldErrors?.email ?? fetcher.data?.message}
+          </p>
+        ) : null}
+        {isSuccess ? (
+          <p
+            className="font-body text-[11px] text-amber-light mt-3"
+            role="status"
+          >
+            {fetcher.data?.message}
+          </p>
+        ) : null}
         <p className="font-body text-[10px] text-parchment/35 mt-4">
           No spam. <br />
           <Link to="/faq" className="text-amber/80 hover:underline">
