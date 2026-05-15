@@ -1,4 +1,5 @@
 import { Link } from "react-router";
+import { Mouse } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -8,7 +9,7 @@ export default function Hero() {
       <div className="absolute top-[-80px] right-[-80px] w-[480px] h-[480px] rounded-full bg-amber opacity-[0.07] blur-3xl pointer-events-none" />
       <div className="absolute bottom-[-100px] left-[-60px] w-[360px] h-[360px] rounded-full bg-teal opacity-[0.08] blur-3xl pointer-events-none" />
 
-      <div className="relative z-10 text-center max-w-4xl mx-auto">
+      <div className="relative z-10 text-center max-w-4xl mx-auto mb-8 sm:mb-0">
         <p className="animate-fade-up font-body text-[10px] tracking-[0.5em] uppercase text-amber opacity-90 mb-8">
           Faith · Music · Tech · Travel
         </p>
@@ -68,6 +69,7 @@ export default function Hero() {
           Scroll
         </span>
         <div className="w-px h-12 bg-gradient-to-b from-parchment/30 to-transparent" />
+        <Mouse className="w-6 md:w-8 h-6 md:h-8 text-parchment animate-bounce" />
       </div>
     </section>
   );
