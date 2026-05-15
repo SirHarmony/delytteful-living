@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import ScrollReveal from "./ScrollReveal";
+import { IoLogoInstagram } from "react-icons/io5";
 
 const footerLinks = {
   Pillars: [
@@ -88,28 +89,34 @@ export default function Footer() {
             >
               info@delyttefulliving.com
             </a>
+
             <div className="mt-6 flex gap-4">
               {[
                 {
                   label: "Amazon",
                   href: "https://www.amazon.com/stores/Harmony-Mukolwe-Adero/author/B0GWVTDB9H?ref=ap_rdr&shoppingPortalEnabled=true&ccs_id=323239bc-e221-4d9c-98e6-443825713f70",
-                  icon: "a",
+                  icon: <p className="text-2xl">a</p>,
+                },
+                {
+                  label: "Instagram",
+                  href: "https://www.instagram.com/delytteful.living/",
+                  icon: <IoLogoInstagram className="w-4 h-4" />,
                 },
                 // {
                 //   label: "Gumroad",
                 //   href: "https://www.etsy.com/shop/DelytteLiving",
                 //   icon: "◈",
                 // },
-              ].map((s) => (
+              ].map((site) => (
                 <a
-                  key={s.label}
-                  href={s.href}
+                  key={site.label}
+                  href={site.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={s.label}
-                  className="w-8 h-8 border border-parchment/10 flex items-center justify-center text-parchment/30 hover:border-amber hover:text-amber transition-all duration-300 text-xs"
+                  aria-label={site.label}
+                  className="w-10 h-10 border border-parchment/10 flex items-center justify-center text-parchment/30 hover:border-amber hover:text-amber transition-all duration-300 text-xs"
                 >
-                  {s.icon}
+                  {site.icon}
                 </a>
               ))}
             </div>
