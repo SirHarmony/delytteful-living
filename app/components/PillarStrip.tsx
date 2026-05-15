@@ -46,7 +46,7 @@ export default function PillarStrip() {
           <Link
             key={pillar.to}
             to={pillar.to}
-            className={`group flex items-stretch min-h-[120px] md:min-h-[140px] ${pillar.className} text-white transition-all duration-1000 hover:scale-110 shadow-xl`}
+            className={`group flex items-stretch min-h-[120px] md:min-h-[140px] ${pillar.className} text-white transition-all duration-1000 hover:scale-110 hover:z-10`}
           >
             <span
               className={`font-display text-5xl sm:text-6xl md:text-7xl font-light leading-none pl-4 md:pl-6 pr-2 md:pr-3 select-none flex items-center ${pillar.numClass}`}
