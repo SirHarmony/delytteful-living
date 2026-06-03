@@ -3,7 +3,16 @@ import { Mouse } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[url('https://images.unsplash.com/photo-1434907714621-289291ffea37?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center px-6">
+    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-6">
+      <video
+        className="absolute inset-0 h-full w-full object-cover"
+        src="/delytteful-hero-image.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+        aria-hidden
+      />
       <div className="absolute inset-0 bg-ink/85" />
 
       <div className="absolute top-[-80px] right-[-80px] w-[480px] h-[480px] rounded-full bg-amber opacity-[0.07] blur-3xl pointer-events-none" />
