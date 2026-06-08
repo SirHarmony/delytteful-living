@@ -8,7 +8,7 @@ export function meta({}: Route.MetaArgs) {
     {
       name: "description",
       content:
-        "Journals, planners, and e-books for faith, music, tech, and travel — on Etsy and Amazon KDP.",
+        "Journals, planners, and e-books for faith, music, tech, and travel — on Gumroad and Amazon KDP.",
     },
   ];
 }

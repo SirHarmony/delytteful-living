@@ -158,7 +158,7 @@ export default function ShopPageContent() {
               No products match your search.{" "}
               <button
                 type="button"
-                className="text-amber-deep underline"
+                className="text-amber-deep underline cursor-pointer"
                 onClick={() => {
                   setQuery("");
                   setActive("all");
