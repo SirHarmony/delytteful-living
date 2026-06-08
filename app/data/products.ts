@@ -89,6 +89,100 @@ export const products: Product[] = [
     tags: ["faith", "journal", "devotional", "young adult"],
     badge: "Bestseller",
   },
+  {
+    id: "3",
+    slug: "piano-music-notebook",
+    title: "Piano Music Notebook",
+    pillar: "music",
+    price: 10.99,
+    type: "low-content",
+    amazon_url: "https://www.amazon.com/dp/B0H4FT9K1T",
+    gumroad_url: "",
+    cover_image:
+      "https://pub-48994128b4bc40469acdccf48dd3ede8.r2.dev/Piano%20Music%20Notebook/cover_page.jpg",
+    detail_image:
+      "https://pub-48994128b4bc40469acdccf48dd3ede8.r2.dev/Piano%20Music%20Notebook/detail_image.jpg",
+    description:
+      "A 20-Week Piano Music Notebook designed to help you stay consistent with practice, composition, and musical development. Featuring grand staff manuscript paper and weekly practice logs, it's perfect for students, teachers, pianists, and composers.",
+    longDescription:
+      "Are you looking to improve your piano skills and stay consistent with your musical growth? Our Piano Music Notebook is designed to be your personal space for composition, practice, and progress. Whether you are a beginner, student, teacher, or experienced pianist, this notebook provides the structure you need to develop your skills, organize your ideas, and build a consistent practice routine.",
+    whatsInside: [
+      "140 Pages of Piano Manuscript Paper: Plenty of space for compositions, exercises, arrangements, and musical ideas.",
+      "4 Grand Staff Systems Per Page: Clearly laid out treble and bass clef pairs for comfortable writing and notation.",
+      "20 Weekly Practice Logs: Dedicated pages to track goals, practice sessions, achievements, and areas for improvement.",
+      "Structured Learning Layout: One weekly log after every 7 manuscript pages to support consistent practice and progress.",
+      'Large 8.5" x 11" Format: Generous page size that provides ample room for writing, composing, and lesson notes.',
+      "Suitable for All Skill Levels: Perfect for piano students, teachers, composers, and musicians looking to stay organized and focused on their musical growth.",
+    ],
+    samplePages: [
+      "https://pub-48994128b4bc40469acdccf48dd3ede8.r2.dev/Piano%20Music%20Notebook/sample_1.jpg",
+      "https://pub-48994128b4bc40469acdccf48dd3ede8.r2.dev/Piano%20Music%20Notebook/sample_2.jpg",
+    ],
+    tags: ["music", "piano", "composition", "practice"],
+    badge: "New",
+  },
+  {
+    id: "4",
+    slug: "guitar-tab-manuscript-paper",
+    title: "Guitar TAB Manuscript Paper",
+    pillar: "music",
+    price: 8.99,
+    type: "low-content",
+    amazon_url: "https://www.amazon.com/dp/B0H4FTGXKH",
+    gumroad_url: "",
+    cover_image:
+      "https://pub-48994128b4bc40469acdccf48dd3ede8.r2.dev/Guitar%20TAB%20Manuscript%20Paper/cover_page.jpg",
+    detail_image:
+      "https://pub-48994128b4bc40469acdccf48dd3ede8.r2.dev/Guitar%20TAB%20Manuscript%20Paper/detail_image.jpg",
+    description:
+      "A Guitar TAB Manuscript Notebook designed to help you capture riffs, solos, chord progressions, and original compositions. Featuring blank guitar tablature paper, it's perfect for students, teachers, guitarists, songwriters, and musicians of all skill levels.",
+    longDescription:
+      "Are you looking to improve your guitar skills and keep your musical ideas organized? Our Guitar TAB Manuscript Notebook is designed to be your personal space for songwriting, practice, and creativity. Whether you are a beginner learning new techniques, a student taking lessons, a teacher creating exercises, or an experienced guitarist composing original music, this notebook provides the structure you need to record riffs, solos, chord progressions, and arrangements while supporting your growth as a musician.",
+    whatsInside: [
+      "100 Pages of Guitar TAB Paper: Plenty of space for riffs, solos, chord progressions, songs, and original compositions.",
+      "6 TAB Systems Per Page: Clearly laid out guitar tablature sections for comfortable writing, practice, and notation.",
+      "Designed for Songwriting and Practice: Ideal for recording musical ideas, arranging songs, and documenting exercises and techniques.",
+      "Easy-to-Use Tablature Format: Helps guitarists quickly capture notes and fret positions without the complexity of standard notation.",
+      'Large 8.5" x 11" Format: Generous page size that provides ample room for writing, composing, and lesson notes.',
+      "Suitable for All Skill Levels: Perfect for guitar students, teachers, songwriters, and musicians looking to stay organized and develop their skills.",
+    ],
+    samplePages: [
+      "https://pub-48994128b4bc40469acdccf48dd3ede8.r2.dev/Guitar%20TAB%20Manuscript%20Paper/sample_1.jpg",
+    ],
+    tags: ["music", "guitar", "tab", "composition", "practice"],
+    badge: "New",
+  },
+  {
+    id: "5",
+    slug: "music-manuscript-paper",
+    title: "Music Manuscript Paper",
+    pillar: "music",
+    price: 8.99,
+    type: "low-content",
+    amazon_url: "https://www.amazon.com/dp/B0H4FD2FVG",
+    gumroad_url: "",
+    cover_image:
+      "https://pub-48994128b4bc40469acdccf48dd3ede8.r2.dev/Music%20Manuscript%20Paper/cover_page.jpg",
+    detail_image:
+      "https://pub-48994128b4bc40469acdccf48dd3ede8.r2.dev/Music%20Manuscript%20Paper/detail_image.jpg",
+    description:
+      "A Music Manuscript Notebook designed to help you capture melodies, compositions, and musical ideas with ease. Featuring blank staff paper, it's perfect for students, teachers, composers, songwriters, and musicians looking to develop their creativity and organize their musical work.",
+    longDescription:
+      "Are you looking to organize your musical ideas and bring more structure to your creative process? Our Music Manuscript Notebook is designed to be your personal space for composition, notation, and musical development. Whether you are a student learning music theory, a teacher creating exercises, a songwriter developing new melodies, or a composer working on your next piece, this notebook provides the space you need to write, refine, and preserve your musical ideas while supporting your growth as a musician.",
+    whatsInside: [
+      "100 Pages of Music Manuscript Paper: Plenty of space for melodies, harmonies, compositions, arrangements, and musical ideas.",
+      "6 Staff Systems Per Page: Clearly laid out staff lines for comfortable writing, notation, and score development.",
+      "Designed for Composition and Learning: Ideal for songwriting, music theory exercises, classroom assignments, and creative exploration.",
+      "Supports Musical Growth: Helps develop notation skills, music literacy, and a deeper understanding of musical structure.",
+      'Large 8.5" x 11" Format: Generous page size that provides ample room for writing, composing, and lesson notes.',
+      "Suitable for All Skill Levels: Perfect for music students, teachers, composers, songwriters, and musicians looking to stay organized and express their creativity.",
+    ],
+    samplePages: [
+      "https://pub-48994128b4bc40469acdccf48dd3ede8.r2.dev/Music%20Manuscript%20Paper/sample_1.jpg",
+    ],
+    tags: ["music", "guitar", "tab", "composition", "practice"],
+    badge: "New",
+  },
   // {
   //   id: "prayer-gratitude-planner",
   //   slug: "prayer-gratitude-planner",

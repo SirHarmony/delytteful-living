@@ -127,7 +127,7 @@ export default function ProductDetail({ loaderData }: Route.ComponentProps) {
           <ScrollReveal>
             <div className="mb-12">
               <h2 className="font-display text-xl text-charcoal mb-3">
-                Sample pages
+                Sample page(s)
               </h2>
               <div className="grid grid-cols-2 gap-3">
                 {product.samplePages.map((src, i) => (

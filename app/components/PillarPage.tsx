@@ -38,6 +38,16 @@ export default function PillarPage({ pillarSlug }: Props) {
           </div>
         </ScrollReveal>
 
+        {main.length > 0 && (
+          <ScrollReveal>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+              {main.map((p) => (
+                <ProductCard key={p.id} product={p} />
+              ))}
+            </div>
+          </ScrollReveal>
+        )}
+
         {pillarSlug === "music" && (
           <ScrollReveal>
             <section
@@ -54,6 +64,7 @@ export default function PillarPage({ pillarSlug }: Props) {
                 {playlistDetails.description}
               </p>
 
+              {/* Spotify Playlists */}
               {musicEmbeds.map((musicEmbed) => (
                 <ScrollReveal key={musicEmbed.spotifyOpenUrl}>
                   <section className="mb-12">
@@ -94,14 +105,6 @@ export default function PillarPage({ pillarSlug }: Props) {
             </section>
           </ScrollReveal>
         )}
-
-        <ScrollReveal>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
-            {main.map((p) => (
-              <ProductCard key={p.id} product={p} />
-            ))}
-          </div>
-        </ScrollReveal>
 
         {suggestions.length > 0 && (
           <ScrollReveal>
