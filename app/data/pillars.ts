@@ -114,4 +114,11 @@ export const musicEmbeds = [
       "https://open.spotify.com/embed/playlist/42vK4Lyjot9X2T6JV6TYhl?utm_source=generator",
     embedHeightPx: 352,
   },
+  {
+    spotifyOpenUrl:
+      "https://open.spotify.com/playlist/6IzwtSim1xWpIgSLLqQbLD?si=1680ac85da764f3c",
+    spotifyEmbedSrc:
+      "https://open.spotify.com/embed/playlist/6IzwtSim1xWpIgSLLqQbLD?utm_source=generator&si=95b584fec00c48b2",
+    embedHeightPx: 352,
+  },
 ] as const;
