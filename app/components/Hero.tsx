@@ -1,16 +1,68 @@
+import { useEffect, useRef } from "react";
 import { Link } from "react-router";
 import { Mouse } from "lucide-react";
 
 export default function Hero() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    let cancelled = false;
+
+    const tryPlay = () => {
+      if (cancelled) return;
+      // Force mute on the DOM property — required for mobile autoplay policies.
+      video.defaultMuted = true;
+      video.muted = true;
+      video.playsInline = true;
+
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          // Autoplay can still be blocked (Low Power Mode, data saver, etc.).
+          // Visibility / first-gesture handlers below will retry.
+        });
+      }
+    };
+
+    tryPlay();
+
+    const onCanPlay = () => tryPlay();
+    const onVisibility = () => {
+      if (document.visibilityState === "visible" && video.paused) tryPlay();
+    };
+    const onGesture = () => {
+      if (video.paused) tryPlay();
+    };
+
+    video.addEventListener("canplay", onCanPlay);
+    document.addEventListener("visibilitychange", onVisibility);
+    window.addEventListener("touchstart", onGesture, { once: true, passive: true });
+    window.addEventListener("click", onGesture, { once: true });
+
+    return () => {
+      cancelled = true;
+      video.removeEventListener("canplay", onCanPlay);
+      document.removeEventListener("visibilitychange", onVisibility);
+      window.removeEventListener("touchstart", onGesture);
+      window.removeEventListener("click", onGesture);
+      video.pause();
+    };
+  }, []);
+
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-6">
       <video
+        ref={videoRef}
         className="absolute inset-0 h-full w-full object-cover"
         src="/delytteful-hero-image.mp4"
         autoPlay
         loop
         muted
         playsInline
+        preload="auto"
         aria-hidden
       />
       <div className="absolute inset-0 bg-ink/85" />
