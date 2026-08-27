@@ -1,16 +1,76 @@
+import { useLayoutEffect, useRef } from "react";
 import { Link } from "react-router";
 import { Mouse } from "lucide-react";
 
+/** Cache-bust so mobile Safari does not keep an older audio-bearing copy. */
+const HERO_VIDEO_SRC = "/delytteful-hero-image.mp4?v=2";
+
+function prepareForAutoplay(video: HTMLVideoElement) {
+  // Safari checks the HTML attribute; React may omit it from the DOM.
+  video.setAttribute("muted", "");
+  video.setAttribute("playsinline", "");
+  video.setAttribute("webkit-playsinline", "");
+  video.defaultMuted = true;
+  video.muted = true;
+  video.playsInline = true;
+  video.volume = 0;
+}
+
 export default function Hero() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useLayoutEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    let cancelled = false;
+
+    const tryPlay = () => {
+      if (cancelled) return;
+      prepareForAutoplay(video);
+      void video.play().catch(() => {
+        // Low Power Mode / user settings can still block; gesture retry below.
+      });
+    };
+
+    prepareForAutoplay(video);
+    tryPlay();
+
+    const onReady = () => tryPlay();
+    const onVisibility = () => {
+      if (document.visibilityState === "visible" && video.paused) tryPlay();
+    };
+    const onGesture = () => {
+      if (video.paused) tryPlay();
+    };
+
+    video.addEventListener("loadeddata", onReady);
+    video.addEventListener("canplay", onReady);
+    document.addEventListener("visibilitychange", onVisibility);
+    window.addEventListener("touchstart", onGesture, { once: true, passive: true });
+    window.addEventListener("click", onGesture, { once: true });
+
+    return () => {
+      cancelled = true;
+      video.removeEventListener("loadeddata", onReady);
+      video.removeEventListener("canplay", onReady);
+      document.removeEventListener("visibilitychange", onVisibility);
+      window.removeEventListener("touchstart", onGesture);
+      window.removeEventListener("click", onGesture);
+    };
+  }, []);
+
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-6">
       <video
+        ref={videoRef}
         className="absolute inset-0 h-full w-full object-cover"
-        src="/delytteful-hero-image.mp4"
+        src={HERO_VIDEO_SRC}
         autoPlay
         loop
         muted
         playsInline
+        preload="auto"
         aria-hidden
       />
       <div className="absolute inset-0 bg-ink/85" />
