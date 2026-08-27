@@ -2,75 +2,74 @@ import { useLayoutEffect, useRef } from "react";
 import { Link } from "react-router";
 import { Mouse } from "lucide-react";
 
-/**
- * Mobile Safari autoplay requires the HTML `muted` *attribute* (not only the
- * `.muted` property). React historically omits that attribute from the DOM,
- * so we mount a plain <video> via innerHTML to guarantee autoplay eligibility.
- */
-function mountHeroVideo(container: HTMLDivElement) {
-  container.innerHTML = `
-    <video
-      class="absolute inset-0 h-full w-full object-cover"
-      src="/delytteful-hero-image.mp4"
-      autoplay
-      loop
-      muted
-      playsinline
-      webkit-playsinline
-      preload="auto"
-      aria-hidden="true"
-    ></video>
-  `.trim();
-
-  return container.querySelector("video");
+function prepareForAutoplay(video: HTMLVideoElement) {
+  // Safari checks the HTML attribute; React may omit it from the DOM.
+  video.setAttribute("muted", "");
+  video.setAttribute("playsinline", "");
+  video.setAttribute("webkit-playsinline", "");
+  video.defaultMuted = true;
+  video.muted = true;
+  video.playsInline = true;
+  video.volume = 0;
 }
 
 export default function Hero() {
-  const videoHostRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
-  // useLayoutEffect: attach muted attributes before paint so Safari can autoplay.
   useLayoutEffect(() => {
-    const host = videoHostRef.current;
-    if (!host) return;
-
-    const video = mountHeroVideo(host);
+    const video = videoRef.current;
     if (!video) return;
 
     let cancelled = false;
 
     const tryPlay = () => {
-      if (cancelled || !video.paused) return;
-      video.defaultMuted = true;
-      video.muted = true;
-      video.volume = 0;
+      if (cancelled) return;
+      prepareForAutoplay(video);
       void video.play().catch(() => {
-        // Low Power Mode / user autoplay settings can still block; retry below.
+        // Autoplay can still be blocked (e.g. Low Power Mode). Gesture retry below.
       });
     };
 
+    prepareForAutoplay(video);
     tryPlay();
 
     const onReady = () => tryPlay();
     const onVisibility = () => {
-      if (document.visibilityState === "visible") tryPlay();
+      if (document.visibilityState === "visible" && video.paused) tryPlay();
+    };
+    const onGesture = () => {
+      if (video.paused) tryPlay();
     };
 
     video.addEventListener("loadeddata", onReady);
     video.addEventListener("canplay", onReady);
     document.addEventListener("visibilitychange", onVisibility);
+    window.addEventListener("touchstart", onGesture, { once: true, passive: true });
+    window.addEventListener("click", onGesture, { once: true });
 
     return () => {
       cancelled = true;
       video.removeEventListener("loadeddata", onReady);
       video.removeEventListener("canplay", onReady);
       document.removeEventListener("visibilitychange", onVisibility);
-      host.innerHTML = "";
+      window.removeEventListener("touchstart", onGesture);
+      window.removeEventListener("click", onGesture);
     };
   }, []);
 
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-6">
-      <div ref={videoHostRef} className="absolute inset-0" aria-hidden />
+      <video
+        ref={videoRef}
+        className="absolute inset-0 h-full w-full object-cover"
+        src="/delytteful-hero-image.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+        aria-hidden
+      />
       <div className="absolute inset-0 bg-ink/85" />
 
       <div className="absolute top-[-80px] right-[-80px] w-[480px] h-[480px] rounded-full bg-amber opacity-[0.07] blur-3xl pointer-events-none" />
