@@ -2,6 +2,9 @@ import { useLayoutEffect, useRef } from "react";
 import { Link } from "react-router";
 import { Mouse } from "lucide-react";
 
+/** Cache-bust so mobile Safari does not keep an older audio-bearing copy. */
+const HERO_VIDEO_SRC = "/delytteful-hero-image.mp4?v=2";
+
 function prepareForAutoplay(video: HTMLVideoElement) {
   // Safari checks the HTML attribute; React may omit it from the DOM.
   video.setAttribute("muted", "");
@@ -26,7 +29,7 @@ export default function Hero() {
       if (cancelled) return;
       prepareForAutoplay(video);
       void video.play().catch(() => {
-        // Autoplay can still be blocked (e.g. Low Power Mode). Gesture retry below.
+        // Low Power Mode / user settings can still block; gesture retry below.
       });
     };
 
@@ -62,7 +65,7 @@ export default function Hero() {
       <video
         ref={videoRef}
         className="absolute inset-0 h-full w-full object-cover"
-        src="/delytteful-hero-image.mp4"
+        src={HERO_VIDEO_SRC}
         autoPlay
         loop
         muted
